@@ -27,7 +27,6 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ITemplateResolver;
 
-
 import com.Reskein.PDSReskein.model.Aluno;
 
 import nz.net.ultraq.thymeleaf.LayoutDialect;
