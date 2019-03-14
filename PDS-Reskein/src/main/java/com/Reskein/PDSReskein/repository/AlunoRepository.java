@@ -14,6 +14,6 @@ public interface AlunoRepository extends JpaRepository<Aluno, Integer> {
 	
 
 	@Query(value = "select * from Aluno where idAluno=?", nativeQuery = true)
-	List<Aluno> findByIdAluno(Integer idAluno);
+	List<Aluno> findAllByIdAluno(Integer idAluno);
 	
 }
