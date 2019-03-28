@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PdsReskeinApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PdsReskeinApplication.class, args);
+		SpringApplication.run(PdsReskeinApplication.class, args);	
 	}
 
 }

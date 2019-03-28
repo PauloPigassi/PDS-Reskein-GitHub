@@ -2,6 +2,7 @@ package com.Reskein.PDSReskein.service;
 
 import java.util.Optional;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +25,12 @@ public class AlunoService {
 		aluno.setEndereco(alunoservice.get().getEndereco());
 		
 		alunoRepository.save(aluno);
+	}
+	
+	@Transactional
+	public void editarAluno (Aluno aluno) {
+		Optional<Aluno> alunoservice = alunoRepository.findById(aluno.getIdAluno());
+		aluno.setIdAluno(idAluno);
 	}
 	
 }
