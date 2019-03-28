@@ -49,8 +49,20 @@ public class AlunoController {
 		}
 		alunoService.salvarAluno(aluno);
 		
-		attributes.addFlashAttribute("mensagem", "Ocorrência cadastrada com sucesso!");
+		attributes.addFlashAttribute("mensagem", "Cliente cadastrada com sucesso!");
 		return new ModelAndView("redirect:/aluno/mostrarAlunos");
+	}
+	
+	@RequestMapping(value="/editarAluno", method=RequestMethod.POST)
+	public ModelAndView editarAluno(@Valid Aluno aluno, BindingResult result, RedirectAttributes attributes) {
+		if(result.hasErrors()) {
+			return aluno(aluno);
+		}
+		alunoService.editarAluno(aluno);
+		
+		attributes.addFlashAttribute("mensagem", "Ocorrência cadastrada com sucesso!");
+		
+	}
 	}
 	
 	

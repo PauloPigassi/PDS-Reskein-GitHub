@@ -27,4 +27,10 @@ public class AlunoService {
 		alunoRepository.save(aluno);
 	}
 	
+	@Transactional
+	public void editarAluno (Aluno aluno) {
+		Optional<Aluno> alunoservice = alunoRepository.findById(aluno.getIdAluno());
+		aluno.setIdAluno(idAluno);
+	}
+	
 }
