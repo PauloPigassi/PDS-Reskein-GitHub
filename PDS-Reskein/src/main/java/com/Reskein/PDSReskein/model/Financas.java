@@ -82,14 +82,6 @@
 //		this.idGastoExtra = idGastoExtra;
 //	}
 //
-//	public List<Aluno> getQuantidadealunos() {
-//		return quantidadealunos;
-//	}
-//
-//	public void setQuantidadealunos(List<Aluno> quantidadealunos) {
-//		this.quantidadealunos = quantidadealunos;
-//	}
-//
 //	public GastoDia getGastoDia() {
 //		return gastoDia;
 //	}
