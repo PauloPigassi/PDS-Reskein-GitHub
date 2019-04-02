@@ -49,21 +49,42 @@ public class AlunoController {
 		}
 		alunoService.salvarAluno(aluno);
 		
-		attributes.addFlashAttribute("mensagem", "Cliente cadastrada com sucesso!");
+		attributes.addFlashAttribute("mensagem", "Aluno cadastrado com sucesso!");
+		return new ModelAndView("redirect:/aluno/mostrarAlunos");
+	}
+//	
+//	@RequestMapping(value="/editarAluno", method=RequestMethod.POST)
+//	public ModelAndView editarAluno(@Valid Aluno aluno, BindingResult result, RedirectAttributes attributes) {
+//		if(result.hasErrors()) {
+//			return aluno(aluno);
+//		}
+//		alunoService.editarAluno(aluno);
+//		
+//		attributes.addFlashAttribute("mensagem", "Ocorrência cadastrada com sucesso!");
+//		
+//	}
+	@RequestMapping(value="/excluirAluno", method=RequestMethod.POST)
+	public ModelAndView excluirAluno(@Valid Aluno aluno, BindingResult result, RedirectAttributes attributes) {
+		if(result.hasErrors()) {
+			return aluno(aluno);
+		}
+		alunoService.excluirAluno(aluno);
+		
+		attributes.addFlashAttribute("mensagem", "Aluno removido com sucesso!");
 		return new ModelAndView("redirect:/aluno/mostrarAlunos");
 	}
 	
 	@RequestMapping(value="/editarAluno", method=RequestMethod.POST)
-	public ModelAndView editarAluno(@Valid Aluno aluno, BindingResult result, RedirectAttributes attributes) {
+	public ModelAndView atualizarAluno(@Valid Aluno aluno, BindingResult result, RedirectAttributes attributes) {
 		if(result.hasErrors()) {
 			return aluno(aluno);
 		}
 		alunoService.editarAluno(aluno);
-		
-		attributes.addFlashAttribute("mensagem", "Ocorrência cadastrada com sucesso!");
-		
+		 
+		attributes.addFlashAttribute("mensagem", "Aluno editado com sucesso!");
+		return new ModelAndView("redirect:/aluno/mostrarAlunos");
 	}
-	}
+}
 	
 	
 	
@@ -85,5 +106,5 @@ public class AlunoController {
 //		// This returns a JSON or XML with the users
 //		return alunoRepository.findAll();
 //	}
-	
-}
+
+

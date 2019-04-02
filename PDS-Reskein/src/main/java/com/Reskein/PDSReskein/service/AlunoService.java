@@ -28,9 +28,18 @@ public class AlunoService {
 	}
 	
 	@Transactional
-	public void editarAluno (Aluno aluno) {
+	public void excluirAluno (Aluno aluno) {
 		Optional<Aluno> alunoservice = alunoRepository.findById(aluno.getIdAluno());
-		aluno.setIdAluno(idAluno);
+		alunoRepository.delete(aluno);
+		
+		
 	}
+	
+	@Transactional
+	public void editarAluno (Aluno aluno) {
+		
+			alunoRepository.update(aluno.getEndereco(), aluno.getContato(), aluno.getIdAluno());
+		}
+	
 	
 }

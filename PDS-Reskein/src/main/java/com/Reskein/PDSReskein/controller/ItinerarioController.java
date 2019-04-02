@@ -52,4 +52,4 @@ public class ItinerarioController {
 		attributes.addFlashAttribute("mensagem", "Ocorrência cadastrada com sucesso!");
 		return new ModelAndView("redirect:/itinerario/mostrarItinerarios");
 	}
-	
+}

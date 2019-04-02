@@ -24,7 +24,7 @@ public class FinancasService {
 		financas.setMensalidade(financasservice.get().getMensalidade());
 		financas.setIdGastoDia(financasservice.get().getIdGastoDia());
 		financas.setIdGastoExtra(financasservice.get().getIdGastoExtra());
-		financas.setQuantidadealunos(financasservice.get().getQuantidadealunos());
+//		financas.setQuantidadealunos(financasservice.get().getQuantidadealunos());
 		financas.setGastoDia(financasservice.get().getGastoDia());
 		financas.setGastoExtra(financasservice.get().getGastoExtra());
 		

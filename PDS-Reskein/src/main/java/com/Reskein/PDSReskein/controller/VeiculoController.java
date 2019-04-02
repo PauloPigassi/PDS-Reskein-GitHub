@@ -51,5 +51,5 @@ public class VeiculoController {
 		
 		attributes.addFlashAttribute("mensagem", "Ocorrência cadastrada com sucesso!");
 		return new ModelAndView("redirect:/veiculo/mostrarVeiculos");
-	}
+	}}
 	

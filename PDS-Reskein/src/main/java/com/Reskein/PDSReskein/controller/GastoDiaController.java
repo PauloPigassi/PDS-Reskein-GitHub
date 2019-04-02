@@ -51,5 +51,5 @@ public class GastoDiaController {
 		
 		attributes.addFlashAttribute("mensagem", "Ocorrência cadastrada com sucesso!");
 		return new ModelAndView("redirect:/gastoDia/mostrarGastoDias");
-	}
+	}}
 	

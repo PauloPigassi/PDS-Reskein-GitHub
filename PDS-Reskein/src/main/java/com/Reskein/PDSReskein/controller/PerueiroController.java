@@ -51,5 +51,5 @@ public class PerueiroController {
 		
 		attributes.addFlashAttribute("mensagem", "Ocorrência cadastrada com sucesso!");
 		return new ModelAndView("redirect:/perueiro/mostrarPerueiros");
-	}
+	}}
 	
