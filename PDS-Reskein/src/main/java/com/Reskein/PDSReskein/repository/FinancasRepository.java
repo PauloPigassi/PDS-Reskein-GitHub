@@ -6,14 +6,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.Reskein.PDSReskein.model.Financa;
+import com.Reskein.PDSReskein.model.Financas;
 
 
 @Repository
-public interface FinancaRepository extends JpaRepository<Financa, Integer> {
+public interface FinancasRepository extends JpaRepository<Financas, Integer> {
 	
 
 	@Query(value = "select * from Financa where idFinanca=?", nativeQuery = true)
-	List<Financa> findAllByIdFinanca(Integer idFinanca);
+	List<Financas> findAllByIdFinanca(Integer idFinanca);
 	
 }

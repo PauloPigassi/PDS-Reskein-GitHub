@@ -51,5 +51,5 @@ public class TurnoController {
 		
 		attributes.addFlashAttribute("mensagem", "Ocorrência cadastrada com sucesso!");
 		return new ModelAndView("redirect:/turno/mostrarTurnos");
-	}
+	}}
 	
