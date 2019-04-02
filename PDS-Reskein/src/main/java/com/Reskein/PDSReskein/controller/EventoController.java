@@ -52,4 +52,4 @@ public class EventoController {
 		attributes.addFlashAttribute("mensagem", "Ocorrência cadastrada com sucesso!");
 		return new ModelAndView("redirect:/evento/mostrarEventos");
 	}
-	
+}

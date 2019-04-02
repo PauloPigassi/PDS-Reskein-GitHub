@@ -2,7 +2,6 @@ package com.Reskein.PDSReskein.service;
 
 import java.util.Optional;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +14,7 @@ import com.Reskein.PDSReskein.repository.EscolaRepository;
 public class EscolaService {
 	
 	@Autowired
-	private EscolaRepository fscolaRepository;
+	private EscolaRepository escolaRepository;
 	
 	@Transactional
 	public void salvarEscola(Escola escola) {
@@ -23,7 +22,7 @@ public class EscolaService {
 		escola.setIdEscola(escolaservice.get().getIdEscola());
 		escola.setEndereco(escolaservice.get().getEndereco());
 		
-		EscolaRepository.save(escola);
+		escolaRepository.save(escola);
 	}
 	
 }

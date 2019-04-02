@@ -52,4 +52,4 @@ public class EscolaController {
 		attributes.addFlashAttribute("mensagem", "Ocorrência cadastrada com sucesso!");
 		return new ModelAndView("redirect:/escola/mostrarEscolas");
 	}
-	
+}
