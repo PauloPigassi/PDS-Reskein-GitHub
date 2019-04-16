@@ -16,13 +16,14 @@ import com.Reskein.PDSReskein.model.Veiculo;
 public interface VeiculoRepository extends JpaRepository<Veiculo, Integer> {
 	
 
-	@Query(value = "select * from Veiculo where idVeiculo=?", nativeQuery = true)
-	List<Veiculo> findAllByIdVeiculo(Integer idVeiculo);
-	
-	
 	@Modifying
 	@Transactional
 	@Query("UPDATE Veiculo SET modelo = :modelo, lugares = :lugares, kmPorLitro = :kmPorLitro WHERE idVeiculo = :idVeiculo")
 	 public void update(@Param("modelo") String modelo, @Param("lugares") int lugares, @Param("kmPorLitro") double kmPorLitro, @Param("idVeiculo") int idVeiculo); 
+	
+	
+	@Query(value = "select * from Veiculo where idVeiculo=?", nativeQuery = true)
+	List<Veiculo> findAllByIdVeiculo(Integer idVeiculo);
+	
 	
 }
