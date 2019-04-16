@@ -23,7 +23,7 @@ public interface AlunoRepository extends JpaRepository<Aluno, Integer> {
 	@Modifying
 	@Transactional
 	@Query("UPDATE Aluno SET endereco = :endereco, contato = :contato WHERE idAluno = :idAluno")
-	 public void update(@Param("endereco") String endereco, @Param("contato") String contato, @Param("idAluno") int i) 
+	 public void update(@Param("endereco") String endereco, @Param("contato") String contato, @Param("idAluno") int idAluno); 
 	
 	
 }

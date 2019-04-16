@@ -17,12 +17,12 @@ import org.springframework.data.annotation.Id;
 
 
 @Entity
-@Table(name = "Evento")
-public class Evento {
+@Table(name = "Viagem")
+public class Viagem {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idEvento;
+	private int idViagem;
 	@NotBlank(message = "Dia da semana obrigatório")
 	private String diaSemana;
 	@NotBlank(message = "Id Itinerario obrigatório")
@@ -32,23 +32,23 @@ public class Evento {
 	@NotBlank(message = "Id Turno obrigatório")
 	private int idTurno;
 	
-//	Lista de alunos em eventos
+//	Lista de alunos em viagens
 	@ManyToOne
 	@JoinColumn(name = "Aluno")
 	private List<Aluno> alunos;
 	
 	//Objeto itinerario, chave estrangeira
-	@OneToOne(mappedBy = "Evento", fetch = FetchType.EAGER)
+	@OneToOne(mappedBy = "Viagem", fetch = FetchType.EAGER)
 	private Itinerario itinerario;
 	
 	
 	
 	
-	public int getIdEvento() {
-		return idEvento;
+	public int getIdViagem() {
+		return idViagem;
 	}
-	public void setIdEvento(int idEvento) {
-		this.idEvento = idEvento;
+	public void setIdViagem(int idViagem) {
+		this.idViagem = idViagem;
 	}
 	public String getDiaSemana() {
 		return diaSemana;
@@ -78,7 +78,7 @@ public class Evento {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + idEvento;
+		result = prime * result + idViagem;
 		return result;
 	}
 	@Override
@@ -89,8 +89,8 @@ public class Evento {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Evento other = (Evento) obj;
-		if (idEvento != other.idEvento)
+		Viagem other = (Viagem) obj;
+		if (idViagem != other.idViagem)
 			return false;
 		return true;
 	}

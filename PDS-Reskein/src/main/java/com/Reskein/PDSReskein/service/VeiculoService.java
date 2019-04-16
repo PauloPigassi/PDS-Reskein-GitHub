@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.Reskein.PDSReskein.model.Aluno;
 import com.Reskein.PDSReskein.model.Veiculo;
 import com.Reskein.PDSReskein.repository.VeiculoRepository;
 
@@ -26,5 +27,20 @@ public class VeiculoService {
 		
 		veiculoRepository.save(veiculo);
 	}
+	
+	@Transactional
+	public void excluirVeiculo (Veiculo veiculo) {
+		Optional<Veiculo> veiculoService = veiculoRepository.findById(veiculo.getIdVeiculo());
+		veiculoRepository.delete(veiculo);
+		
+		
+	}
+	
+	@Transactional
+	public void editarVeiculo (Veiculo veiculo) {
+		
+			veiculoRepository.update(veiculo.getModelo(), veiculo.getLugares(), veiculo.getKmPorLitro(), veiculo.getIdVeiculo());
+		}
+	
 	
 }

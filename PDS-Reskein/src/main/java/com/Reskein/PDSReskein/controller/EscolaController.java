@@ -2,7 +2,6 @@ package com.Reskein.PDSReskein.controller;
 
 import java.net.URI;
 
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,34 +21,55 @@ import com.Reskein.PDSReskein.model.Escola;
 import com.Reskein.PDSReskein.repository.EscolaRepository;
 import com.Reskein.PDSReskein.service.EscolaService;
 
-
 @Controller
 @RequestMapping("/escola")
 public class EscolaController {
-	
+
 	@Autowired
 	private EscolaRepository escolaRepository;
-	
+
 	@Autowired
 	private EscolaService escolaService;
-	
+
 	@GetMapping(value = "/mostrarEscolas")
 	public ModelAndView escola(Escola escola) {
 		ModelAndView mv = new ModelAndView("escola");
-		
-		mv.addObject("escola", escolaRepository.findAll());
+
+		mv.addObject("escola", escolaRepository.findAll( ));
 		return mv;
 	}
-	
-	
-	@RequestMapping(value="/adicionarEscola",method=RequestMethod.POST)
+
+	@RequestMapping(value = "/adicionarEscola", method = RequestMethod.POST)
 	public ModelAndView adicionarEscola(@Valid Escola escola, BindingResult result, RedirectAttributes attributes) {
-		if(result.hasErrors()) {
+		if (result.hasErrors()) {
 			return escola(escola);
 		}
 		escolaService.salvarEscola(escola);
-		
-		attributes.addFlashAttribute("mensagem", "Ocorrência cadastrada com sucesso!");
+
+		attributes.addFlashAttribute("mensagem", "Escola cadastrado com sucesso!");
 		return new ModelAndView("redirect:/escola/mostrarEscolas");
 	}
+	
+	@RequestMapping(value="/editarEscola", method=RequestMethod.POST)
+	public ModelAndView atualizarEscola(@Valid Escola escola, BindingResult result, RedirectAttributes attributes) {
+		if(result.hasErrors()) {
+			return escola(escola);
+		}
+		escolaService.editarEscola(escola);
+		 
+		attributes.addFlashAttribute("mensagem", "Escola editado com sucesso!");
+		return new ModelAndView("redirect:/escola/mostrarEscolas");
+	}
+
+	@RequestMapping(value = "/excluirEscola", method = RequestMethod.POST)
+	public ModelAndView excluirEscola(@Valid Escola escola, BindingResult result, RedirectAttributes attributes) {
+		if (result.hasErrors()) {
+			return escola(escola);
+		}
+		escolaService.excluirEscola(escola);
+
+		attributes.addFlashAttribute("mensagem", "Escola removido com sucesso!");
+		return new ModelAndView("redirect:/escola/mostrarEscolas");
+	}
+
 }

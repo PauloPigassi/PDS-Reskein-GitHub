@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 //import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.annotation.Id;
@@ -15,28 +16,45 @@ public class Veiculo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idVeiculo;
-//	@NotBlank(message = "Modelo obrigatório")
+	@NotBlank(message = "Modelo obrigatório")
 	private String modelo;
-//	@NotBlank(message = "Lugares obrigatório")
+	@NotBlank(message = "Lugares obrigatório")
 	private int lugares;
+	@NotBlank(message = "km/litro obrigatório")
+	private double kmPorLitro;
+
+	public double getKmPorLitro() {
+		return kmPorLitro;
+	}
+
+	public void setKmPorLitro(double kmPorLitro) {
+		this.kmPorLitro = kmPorLitro;
+	}
+
 	public int getIdVeiculo() {
 		return idVeiculo;
 	}
+
 	public void setIdVeiculo(int idVeiculo) {
 		this.idVeiculo = idVeiculo;
 	}
+
 	public String getModelo() {
 		return modelo;
 	}
+
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
+
 	public int getLugares() {
 		return lugares;
 	}
+
 	public void setLugares(int lugares) {
 		this.lugares = lugares;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -44,6 +62,7 @@ public class Veiculo {
 		result = prime * result + idVeiculo;
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -57,7 +76,5 @@ public class Veiculo {
 			return false;
 		return true;
 	}
-	
-	
-	
+
 }

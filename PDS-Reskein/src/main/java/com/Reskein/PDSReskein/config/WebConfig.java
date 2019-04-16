@@ -72,16 +72,16 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware {
 		engine.addDialect(new LayoutDialect());
 		return engine;
 	}
-//	@Bean
-//	public EntityManagerFactory entityManagerFactory(DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
-//		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
-//		factory.setDataSource(dataSource);
-//		factory.setJpaVendorAdapter(jpaVendorAdapter);
-//		factory.setPackagesToScan(Aluno.class.getPackage().getName());
-//		factory.setMappingResources("sql/consultas-nativas.xml");
-//		factory.afterPropertiesSet();
-//		return factory.getObject();
-//	}
+	/*@Bean
+	public EntityManagerFactory entityManagerFactory(DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
+		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+		factory.setDataSource(dataSource);
+		factory.setJpaVendorAdapter(jpaVendorAdapter);
+		factory.setPackagesToScan(Aluno.class.getPackage().getName());
+		factory.setMappingResources("sql/consultas-nativas.xml");
+		factory.afterPropertiesSet();
+		return factory.getObject();
+	}*/
 	
 	private ITemplateResolver templateResolver() {
 		SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();

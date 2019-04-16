@@ -17,6 +17,15 @@ public class Escola {
 	private int idEscola;
 	@NotBlank(message = "endereço obrigatório")
 	private String endereco;
+	@NotBlank(message = "nome obrigatório")
+	private String nome;
+	
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 	public int getIdEscola() {
 		return idEscola;
 	}
