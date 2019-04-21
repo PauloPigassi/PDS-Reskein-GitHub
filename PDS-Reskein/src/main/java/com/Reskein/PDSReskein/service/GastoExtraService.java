@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.Reskein.PDSReskein.model.GastoExtra;
+import com.Reskein.PDSReskein.model.Turno;
 import com.Reskein.PDSReskein.repository.GastoExtraRepository;
 
 
@@ -27,4 +28,16 @@ public class GastoExtraService {
 		gastoExtraRepository.save(gastoExtra);
 	}
 	
+	@Transactional
+	public void excluirGastoExtra (GastoExtra gastoExtra) {
+		Optional<GastoExtra> gastoExtraservice = gastoExtraRepository.findById(gastoExtra.getIdGastoExtra());
+		gastoExtraRepository.delete(gastoExtra);
+		
+		
+	}
+	
+	@Transactional
+	public void editarGastoExtra (GastoExtra gastoExtra) {
+		gastoExtraRepository.update(gastoExtra.getDescricao(), gastoExtra.getValor(), gastoExtra.getIdGastoExtra());
+		}
 }

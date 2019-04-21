@@ -1,5 +1,6 @@
 package com.Reskein.PDSReskein.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,7 +19,6 @@ public interface AlunoRepository extends JpaRepository<Aluno, Integer> {
 
 	@Query(value = "select * from Aluno where idAluno=?", nativeQuery = true)
 	List<Aluno> findAllByIdAluno(Integer idAluno);
-	
 	
 	@Modifying
 	@Transactional

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.Reskein.PDSReskein.model.Itinerario;
+import com.Reskein.PDSReskein.model.Turno;
 import com.Reskein.PDSReskein.repository.ItinerarioRepository;
 
 
@@ -31,5 +32,18 @@ public class ItinerarioService {
 		
 		itinerarioRepository.save(itinerario);
 	}
+	
+	@Transactional
+	public void excluirItinerario (Itinerario itinerario) {
+		Optional<Itinerario> itinerarioservice = itinerarioRepository.findById(itinerario.getIdItinerario());
+		itinerarioRepository.delete(itinerario);
+		
+		
+	}
+	
+	@Transactional
+	public void editarItinerario (Itinerario itinerario) {
+			itinerarioRepository.update(itinerario.getDistancia(), itinerario.getIdPerueiro(), itinerario.getIdAluno(), itinerario.getIdEscola(), itinerario.getIdItinerario());
+		}
 	
 }

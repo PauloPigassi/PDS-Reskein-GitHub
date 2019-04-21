@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.Reskein.PDSReskein.model.Financas;
+import com.Reskein.PDSReskein.model.Turno;
 import com.Reskein.PDSReskein.repository.FinancasRepository;
 
 
@@ -31,4 +32,16 @@ public class FinancasService {
 		financasRepository.save(financas);
 	}
 	
+	@Transactional
+	public void excluirFinancas (Financas financas) {
+		Optional<Financas> financasservice = financasRepository.findById(financas.getIdFinancas());
+		financasRepository.delete(financas);
+		
+		
+	}
+	
+	@Transactional
+	public void editarFinancas(Financas financas) {
+			financasRepository.update(financas.getMensalidade(), financas.getQuantidadeAlunos(), financas.getIdGastoDia(), financas.getIdGastoExtra(), financas.getIdFinancas());
+		}
 }

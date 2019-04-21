@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.Reskein.PDSReskein.model.GastoDia;
+import com.Reskein.PDSReskein.model.Turno;
 import com.Reskein.PDSReskein.repository.GastoDiaRepository;
 
 
@@ -29,5 +30,18 @@ public class GastoDiaService {
 		
 		gastoDiaRepository.save(gastoDia);
 	}
+	
+	@Transactional
+	public void excluirGastoDia (GastoDia gastoDia) {
+		Optional<GastoDia> gastoDiaservice = gastoDiaRepository.findById(gastoDia.getIdGastoDia());
+		gastoDiaRepository.delete(gastoDia);
+		
+		
+	}
+	
+	@Transactional
+	public void editarGastoDia (GastoDia gastoDia) {
+			gastoDiaRepository.update(gastoDia.getPrecoCombustivel(), gastoDia.getDiaAbastecimento(),gastoDia.getQuantidadeCombustivel(),gastoDia.getKmPorLitro(), gastoDia.getIdGastoDia());
+		}
 	
 }

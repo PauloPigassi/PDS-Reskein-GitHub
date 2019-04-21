@@ -41,6 +41,27 @@ public class ItinerarioController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "/excluirItinerario", method = RequestMethod.POST)
+	public ModelAndView excluirItinerario(@Valid Itinerario itinerario, BindingResult result, RedirectAttributes attributes) {
+		if (result.hasErrors()) {
+			return itinerario(itinerario);
+		}
+		itinerarioService.excluirItinerario(itinerario);
+
+		attributes.addFlashAttribute("mensagem", "Itinerario removido com sucesso!");
+		return new ModelAndView("redirect:/itinerario/mostrarItinerarios");
+	}
+
+	@RequestMapping(value="/editarItinerario", method=RequestMethod.POST)
+	public ModelAndView atualizarItinerario(@Valid Itinerario itinerario, BindingResult result, RedirectAttributes attributes) {
+		if(result.hasErrors()) {
+			return itinerario(itinerario);
+		}
+		itinerarioService.editarItinerario(itinerario);
+		 
+		attributes.addFlashAttribute("mensagem", "Itinerario editado com sucesso!");
+		return new ModelAndView("redirect:/itinerario/mostrarItinerarios");
+	}
 	
 	@RequestMapping(value="/adicionarItinerario",method=RequestMethod.POST)
 	public ModelAndView adicionarItinerario(@Valid Itinerario itinerario, BindingResult result, RedirectAttributes attributes) {

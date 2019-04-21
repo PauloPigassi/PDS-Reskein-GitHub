@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.Reskein.PDSReskein.model.Aluno;
 import com.Reskein.PDSReskein.model.Turno;
 import com.Reskein.PDSReskein.repository.TurnoRepository;
 
@@ -26,5 +27,18 @@ public class TurnoService {
 		
 		turnoRepository.save(turno);
 	}
+	@Transactional
+	public void excluirTurno (Turno turno) {
+		Optional<Turno> turnoservice = turnoRepository.findById(turno.getIdTurno());
+		turnoRepository.delete(turno);
+		
+		
+	}
+	
+	@Transactional
+	public void editarTurno (Turno turno) {
+			turnoRepository.update(turno.getHorarioEntrada(), turno.getHorarioSaida(), turno.getIdTurno());
+		}
+	
 	
 }

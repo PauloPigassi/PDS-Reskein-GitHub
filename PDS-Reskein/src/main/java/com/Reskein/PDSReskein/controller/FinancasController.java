@@ -41,6 +41,27 @@ public class FinancasController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "/excluirFinancas", method = RequestMethod.POST)
+	public ModelAndView excluirFinancas(@Valid Financas financas, BindingResult result, RedirectAttributes attributes) {
+		if (result.hasErrors()) {
+			return financas(financas);
+		}
+		financasService.excluirFinancas(financas);
+
+		attributes.addFlashAttribute("mensagem", "Financas removidas com sucesso!");
+		return new ModelAndView("redirect:/financas/mostrarFinancass");
+	}
+
+	@RequestMapping(value="/editarFinancas", method=RequestMethod.POST)
+	public ModelAndView atualizarFinancas(@Valid Financas financas, BindingResult result, RedirectAttributes attributes) {
+		if(result.hasErrors()) {
+			return financas(financas);
+		}
+		financasService.editarFinancas(financas);
+		 
+		attributes.addFlashAttribute("mensagem", "Financas editadas com sucesso!");
+		return new ModelAndView("redirect:/financas/mostrarFinancass");
+	}
 	
 	@RequestMapping(value="/adicionarFinancas",method=RequestMethod.POST)
 	public ModelAndView adicionarFinancas(@Valid Financas financas, BindingResult result, RedirectAttributes attributes) {

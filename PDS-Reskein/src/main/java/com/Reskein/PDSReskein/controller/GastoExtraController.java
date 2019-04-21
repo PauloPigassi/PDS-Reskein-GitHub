@@ -40,7 +40,27 @@ public class GastoExtraController {
 		mv.addObject("gastoExtra", gastoExtraRepository.findAll());
 		return mv;
 	}
-	
+	@RequestMapping(value = "/excluirGastoExtra", method = RequestMethod.POST)
+	public ModelAndView excluirGastoExtra(@Valid GastoExtra gastoExtra, BindingResult result, RedirectAttributes attributes) {
+		if (result.hasErrors()) {
+			return gastoExtra(gastoExtra);
+		}
+		gastoExtraService.excluirGastoExtra(gastoExtra);
+
+		attributes.addFlashAttribute("mensagem", "GastoExtra removido com sucesso!");
+		return new ModelAndView("redirect:/gastoExtra/mostrarGastoExtra");
+	}
+
+	@RequestMapping(value="/editarGastoExtra", method=RequestMethod.POST)
+	public ModelAndView atualizarGastoExtra(@Valid GastoExtra gastoExtra, BindingResult result, RedirectAttributes attributes) {
+		if(result.hasErrors()) {
+			return gastoExtra(gastoExtra);
+		}
+		gastoExtraService.editarGastoExtra(gastoExtra);
+		 
+		attributes.addFlashAttribute("mensagem", "GastoExtra editado com sucesso!");
+		return new ModelAndView("redirect:/gastoExtra/mostrarGastoExtra");
+	}
 	
 	@RequestMapping(value="/adicionarGastoExtra",method=RequestMethod.POST)
 	public ModelAndView adicionarGastoExtra(@Valid GastoExtra gastoExtra, BindingResult result, RedirectAttributes attributes) {
