@@ -29,6 +29,11 @@ public class GastoExtraService {
 	}
 	
 	@Transactional
+	public void editarGastoExtra (GastoExtra gastoExtra) {
+		gastoExtraRepository.update(gastoExtra.getDescricao(), gastoExtra.getValor(), gastoExtra.getIdGastoExtra());
+		}
+	
+	@Transactional
 	public void excluirGastoExtra (GastoExtra gastoExtra) {
 		Optional<GastoExtra> gastoExtraservice = gastoExtraRepository.findById(gastoExtra.getIdGastoExtra());
 		gastoExtraRepository.delete(gastoExtra);
@@ -36,8 +41,6 @@ public class GastoExtraService {
 		
 	}
 	
-	@Transactional
-	public void editarGastoExtra (GastoExtra gastoExtra) {
-		gastoExtraRepository.update(gastoExtra.getDescricao(), gastoExtra.getValor(), gastoExtra.getIdGastoExtra());
-		}
+
+
 }
