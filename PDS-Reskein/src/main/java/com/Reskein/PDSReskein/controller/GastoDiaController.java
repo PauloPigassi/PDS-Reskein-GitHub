@@ -52,16 +52,16 @@ public class GastoDiaController {
 		return new ModelAndView("redirect:/gastoDia/mostrarGastoDia");
 	}
 
-	@RequestMapping(value="/editarGastoDia", method=RequestMethod.POST)
-	public ModelAndView atualizarGastoDia(@Valid GastoDia gastoDia, BindingResult result, RedirectAttributes attributes) {
-		if(result.hasErrors()) {
-			return gastoDia(gastoDia);
-		}
-		gastoDiaService.editarGastoDia(gastoDia);
-		 
-		attributes.addFlashAttribute("mensagem", "GastoDia editado com sucesso!");
-		return new ModelAndView("redirect:/gastoDia/mostrarGastoDia");
-	}
+//	@RequestMapping(value="/editarGastoDia", method=RequestMethod.POST)
+//	public ModelAndView atualizarGastoDia(@Valid GastoDia gastoDia, BindingResult result, RedirectAttributes attributes) {
+//		if(result.hasErrors()) {
+//			return gastoDia(gastoDia);
+//		}
+//		gastoDiaService.editarGastoDia(gastoDia);
+//		 
+//		attributes.addFlashAttribute("mensagem", "GastoDia editado com sucesso!");
+//		return new ModelAndView("redirect:/gastoDia/mostrarGastoDia");
+//	}
 	
 	@RequestMapping(value="/adicionarGastoDia",method=RequestMethod.POST)
 	public ModelAndView adicionarGastoDia(@Valid GastoDia gastoDia, BindingResult result, RedirectAttributes attributes) {

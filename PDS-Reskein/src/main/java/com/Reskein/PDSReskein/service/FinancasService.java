@@ -26,8 +26,8 @@ public class FinancasService {
 		financas.setIdGastoDia(financasservice.get().getIdGastoDia());
 		financas.setIdGastoExtra(financasservice.get().getIdGastoExtra());
 //		financas.setQuantidadealunos(financasservice.get().getQuantidadealunos());
-		financas.setGastoDia(financasservice.get().getGastoDia());
-		financas.setGastoExtra(financasservice.get().getGastoExtra());
+//		financas.setGastoDia(financasservice.get().getGastoDia());
+	//	financas.setGastoExtra(financasservice.get().getGastoExtra());
 		
 		financasRepository.save(financas);
 	}
@@ -40,8 +40,8 @@ public class FinancasService {
 		
 	}
 	
-	@Transactional
-	public void editarFinancas(Financas financas) {
-			financasRepository.update(financas.getMensalidade(), financas.getQuantidadeAlunos(), financas.getIdGastoDia(), financas.getIdGastoExtra(), financas.getIdFinancas());
-		}
+//	@Transactional
+//	public void editarFinancas(Financas financas) {
+//			financasRepository.update(financas.getMensalidade(), financas.getQuantidadeAlunos(), financas.getIdGastoDia(), financas.getIdGastoExtra(), financas.getIdFinancas());
+//		}
 }

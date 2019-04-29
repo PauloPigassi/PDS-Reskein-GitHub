@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.Reskein.PDSReskein.model.Escola;
+import com.Reskein.PDSReskein.model.Perueiro;
 import com.Reskein.PDSReskein.repository.EscolaRepository;
 import com.Reskein.PDSReskein.service.EscolaService;
 
@@ -30,6 +31,13 @@ public class EscolaController {
 
 	@Autowired
 	private EscolaService escolaService;
+	
+	@GetMapping(value = "/criarEscola")
+	public ModelAndView criarEscola(Escola escola) {
+		ModelAndView mv = new ModelAndView("criarEscola");
+
+		return mv;
+	}
 
 	@GetMapping(value = "/mostrarEscolas")
 	public ModelAndView escola(Escola escola) {
@@ -38,6 +46,8 @@ public class EscolaController {
 		mv.addObject("escola", escolaRepository.findAll( ));
 		return mv;
 	}
+	
+	
 
 	@RequestMapping(value = "/adicionarEscola", method = RequestMethod.POST)
 	public ModelAndView adicionarEscola(@Valid Escola escola, BindingResult result, RedirectAttributes attributes) {
@@ -50,16 +60,16 @@ public class EscolaController {
 		return new ModelAndView("redirect:/escola/mostrarEscolas");
 	}
 	
-	@RequestMapping(value="/editarEscola", method=RequestMethod.POST)
-	public ModelAndView atualizarEscola(@Valid Escola escola, BindingResult result, RedirectAttributes attributes) {
-		if(result.hasErrors()) {
-			return escola(escola);
-		}
-		escolaService.editarEscola(escola);
-		 
-		attributes.addFlashAttribute("mensagem", "Escola editado com sucesso!");
-		return new ModelAndView("redirect:/escola/mostrarEscolas");
-	}
+//	@RequestMapping(value="/editarEscola", method=RequestMethod.POST)
+//	public ModelAndView atualizarEscola(@Valid Escola escola, BindingResult result, RedirectAttributes attributes) {
+//		if(result.hasErrors()) {
+//			return escola(escola);
+//		}
+//		escolaService.editarEscola(escola);
+//		 
+//		attributes.addFlashAttribute("mensagem", "Escola editado com sucesso!");
+//		return new ModelAndView("redirect:/escola/mostrarEscolas");
+//	}
 
 	@RequestMapping(value = "/excluirEscola", method = RequestMethod.POST)
 	public ModelAndView excluirEscola(@Valid Escola escola, BindingResult result, RedirectAttributes attributes) {

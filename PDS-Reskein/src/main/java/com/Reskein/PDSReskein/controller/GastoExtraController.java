@@ -51,16 +51,16 @@ public class GastoExtraController {
 		return new ModelAndView("redirect:/gastoExtra/mostrarGastoExtra");
 	}
 
-	@RequestMapping(value="/editarGastoExtra", method=RequestMethod.POST)
-	public ModelAndView atualizarGastoExtra(@Valid GastoExtra gastoExtra, BindingResult result, RedirectAttributes attributes) {
-		if(result.hasErrors()) {
-			return gastoExtra(gastoExtra);
-		}
-		gastoExtraService.editarGastoExtra(gastoExtra);
-		 
-		attributes.addFlashAttribute("mensagem", "GastoExtra editado com sucesso!");
-		return new ModelAndView("redirect:/gastoExtra/mostrarGastoExtra");
-	}
+//	@RequestMapping(value="/editarGastoExtra", method=RequestMethod.POST)
+//	public ModelAndView atualizarGastoExtra(@Valid GastoExtra gastoExtra, BindingResult result, RedirectAttributes attributes) {
+//		if(result.hasErrors()) {
+//			return gastoExtra(gastoExtra);
+//		}
+//		gastoExtraService.editarGastoExtra(gastoExtra);
+//		 
+//		attributes.addFlashAttribute("mensagem", "GastoExtra editado com sucesso!");
+//		return new ModelAndView("redirect:/gastoExtra/mostrarGastoExtra");
+//	}
 	
 	@RequestMapping(value="/adicionarGastoExtra",method=RequestMethod.POST)
 	public ModelAndView adicionarGastoExtra(@Valid GastoExtra gastoExtra, BindingResult result, RedirectAttributes attributes) {

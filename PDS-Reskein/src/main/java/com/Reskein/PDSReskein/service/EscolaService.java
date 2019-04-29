@@ -34,11 +34,11 @@ public class EscolaService {
 		
 	}
 	
-	@Transactional
-	public void editarEscola (Escola escola) {
-		
-			escolaRepository.update(escola.getEndereco(), escola.getNome(), escola.getIdEscola());
-		}
-	
+//	@Transactional
+//	public void editarEscola (Escola escola) {
+//		
+//			escolaRepository.update(escola.getEndereco(), escola.getNome(), escola.getIdEscola());
+//		}
+//	
 	
 }

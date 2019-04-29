@@ -19,11 +19,11 @@ public interface FinancasRepository extends JpaRepository<Financas, Integer> {
 
 	@Query(value = "select * from Financa where idFinanca=?", nativeQuery = true)
 	List<Financas> findAllByIdFinanca(Integer idFinanca);
-	
-	@Modifying
-	@Transactional
-	@Query("UPDATE Financas SET mensalidade = :mensalidade, quantidadeAlunos = :quantidadeAlunos, idGastodia = :idGastoDia, idGastoExtra = :idGastoExtra WHERE idFinancas = :idFinancas")
-	 public void update(@Param("mensalidade") Double mensalidade, @Param("quantidadeAlunos") int quantidadeAlunos, @Param("idGastoDia") int idGastoDia, @Param("idGastoExtra") int idGastoExtra, @Param("idFinancas") int idFinancas); 
-	
+//	
+//	@Modifying
+//	@Transactional
+//	@Query("UPDATE Financas SET mensalidade = :mensalidade, quantidadeAlunos = :quantidadeAlunos, idGastodia = :idGastoDia, idGastoExtra = :idGastoExtra WHERE idFinancas = :idFinancas")
+//	 public void update(@Param("mensalidade") Double mensalidade, @Param("quantidadeAlunos") int quantidadeAlunos, @Param("idGastoDia") int idGastoDia, @Param("idGastoExtra") int idGastoExtra, @Param("idFinancas") int idFinancas); 
+//	
 	
 }

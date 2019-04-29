@@ -39,9 +39,9 @@ public class GastoDiaService {
 		
 	}
 	
-	@Transactional
-	public void editarGastoDia (GastoDia gastoDia) {
-			gastoDiaRepository.update(gastoDia.getPrecoCombustivel(), gastoDia.getDiaAbastecimento(),gastoDia.getQuantidadeCombustivel(),gastoDia.getKmPorLitro(), gastoDia.getIdGastoDia());
-		}
+//	@Transactional
+//	public void editarGastoDia (GastoDia gastoDia) {
+//			gastoDiaRepository.update(gastoDia.getPrecoCombustivel(), gastoDia.getDiaAbastecimento(),gastoDia.getQuantidadeCombustivel(),gastoDia.getKmPorLitro(), gastoDia.getIdGastoDia());
+//		}
 	
 }

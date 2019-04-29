@@ -19,9 +19,9 @@ public interface EscolaRepository extends JpaRepository<Escola, Integer> {
 	@Query(value = "select * from Escola where idEscola=?", nativeQuery = true)
 	List<Escola> findAllByIdEscola(Integer idEscola);
 	
-	@Modifying
-	@Transactional
-	@Query("UPDATE Escola SET endereco = :endereco, nome = :nome WHERE idEscola = :idEscola")
-	 public void update(@Param("endereco") String endereco, @Param("nome") String nome, @Param("idEscola") int idEscola); 
-	
+//	@Modifying
+//	@Transactional
+//	@Query("UPDATE Escola SET endereco = :endereco, nome = :nome WHERE idEscola = :idEscola")
+//	 public void update(@Param("endereco") String endereco, @Param("nome") String nome, @Param("idEscola") int idEscola); 
+//	
 }

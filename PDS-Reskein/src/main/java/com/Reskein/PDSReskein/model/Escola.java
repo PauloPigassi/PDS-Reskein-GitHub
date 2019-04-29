@@ -10,7 +10,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.Id;
 
 @Entity
-@Table(name = "Evento")
+@Table(name = "Escola")
 public class Escola {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

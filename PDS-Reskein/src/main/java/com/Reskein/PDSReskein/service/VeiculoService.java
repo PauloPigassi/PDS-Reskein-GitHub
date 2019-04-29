@@ -36,11 +36,11 @@ public class VeiculoService {
 		
 	}
 	
-	@Transactional
-	public void editarVeiculo (Veiculo veiculo) {
-		
-			veiculoRepository.update(veiculo.getModelo(), veiculo.getLugares(), veiculo.getKmPorLitro(), veiculo.getIdVeiculo());
-		}
+//	@Transactional
+//	public void editarVeiculo (Veiculo veiculo) {
+//		
+//			veiculoRepository.update(veiculo.getModelo(), veiculo.getLugares(), veiculo.getKmPorLitro(), veiculo.getIdVeiculo());
+//		}
 	
 	
 }

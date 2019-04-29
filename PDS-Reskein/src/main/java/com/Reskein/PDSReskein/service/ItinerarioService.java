@@ -26,9 +26,9 @@ public class ItinerarioService {
 		itinerario.setIdPerueiro(itinerarioservice.get().getIdPerueiro());
 		itinerario.setIdAluno(itinerarioservice.get().getIdAluno());
 		itinerario.setIdEscola(itinerarioservice.get().getIdEscola());
-		itinerario.setPerueiro(itinerarioservice.get().getPerueiro());
-		itinerario.setAluno(itinerarioservice.get().getAluno());
-		itinerario.setEscola(itinerarioservice.get().getEscola());
+	//	itinerario.setPerueiro(itinerarioservice.get().getPerueiro());
+		//itinerario.setAluno(itinerarioservice.get().getAluno());
+	//	itinerario.setEscola(itinerarioservice.get().getEscola());
 		
 		itinerarioRepository.save(itinerario);
 	}
@@ -41,9 +41,9 @@ public class ItinerarioService {
 		
 	}
 	
-	@Transactional
-	public void editarItinerario (Itinerario itinerario) {
-			itinerarioRepository.update(itinerario.getDistancia(), itinerario.getIdPerueiro(), itinerario.getIdAluno(), itinerario.getIdEscola(), itinerario.getIdItinerario());
-		}
+//	@Transactional
+//	public void editarItinerario (Itinerario itinerario) {
+//			itinerarioRepository.update(itinerario.getDistancia(), itinerario.getIdPerueiro(), itinerario.getIdAluno(), itinerario.getIdEscola(), itinerario.getIdItinerario());
+//		}
 	
 }

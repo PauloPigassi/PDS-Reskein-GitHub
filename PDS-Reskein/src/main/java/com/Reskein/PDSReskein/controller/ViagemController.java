@@ -33,11 +33,21 @@ public class ViagemController {
 
 	@GetMapping(value = "/mostrarViagens")
 	public ModelAndView viagem(Viagem viagem) {
-		ModelAndView mv = new ModelAndView("viagem");
+		ModelAndView mv = new ModelAndView("mostrarViagens");
 
 		mv.addObject("viagem", viagemRepository.findAll( ));
 		return mv;
 	}
+	@GetMapping(value = "/criarviagem")
+	public ModelAndView dashboard(Viagem viagem) {
+		ModelAndView mv = new ModelAndView("criarviagem");
+
+		return mv;
+	}
+	
+	
+	
+	
 
 	@RequestMapping(value = "/adicionarViagem", method = RequestMethod.POST)
 	public ModelAndView adicionarViagem(@Valid Viagem viagem, BindingResult result, RedirectAttributes attributes) {
@@ -49,18 +59,19 @@ public class ViagemController {
 		attributes.addFlashAttribute("mensagem", "Viagem cadastrada com sucesso!");
 		return new ModelAndView("redirect:/viagem/mostrarViagens");
 	}
+	
 
-	@RequestMapping(value="/editarViagem", method = RequestMethod.POST)
-	public ModelAndView atualizarViagem(@Valid Viagem viagem, BindingResult result, RedirectAttributes attributes) {
-		if(result.hasErrors()) {
-			return viagem(viagem);
-		}
-		
-		viagemService.editarViagem(viagem);
-		 
-		attributes.addFlashAttribute("mensagem", "Viagem editada com sucesso!");
-		return new ModelAndView("redirect:/viagem/mostrarViagens");
-	}
+//	@RequestMapping(value="/editarViagem", method = RequestMethod.POST)
+//	public ModelAndView atualizarViagem(@Valid Viagem viagem, BindingResult result, RedirectAttributes attributes) {
+//		if(result.hasErrors()) {
+//			return viagem(viagem);
+//		}
+//		
+//		viagemService.editarViagem(viagem);
+//		 
+//		attributes.addFlashAttribute("mensagem", "Viagem editada com sucesso!");
+//		return new ModelAndView("redirect:/viagem/mostrarViagens");
+//	}
 	
 	@RequestMapping(value = "/excluirViagem", method = RequestMethod.POST)
 	public ModelAndView excluirViagem(@Valid Viagem viagem, BindingResult result, RedirectAttributes attributes) {

@@ -35,10 +35,10 @@ public class TurnoService {
 		
 	}
 	
-	@Transactional
-	public void editarTurno (Turno turno) {
-			turnoRepository.update(turno.getHorarioEntrada(), turno.getHorarioSaida(), turno.getIdTurno());
-		}
-	
+//	@Transactional
+//	public void editarTurno (Turno turno) {
+//			turnoRepository.update(turno.getHorarioEntrada(), turno.getHorarioSaida(), turno.getIdTurno());
+//		}
+//	
 	
 }

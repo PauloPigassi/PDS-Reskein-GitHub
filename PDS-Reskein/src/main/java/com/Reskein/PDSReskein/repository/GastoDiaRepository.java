@@ -20,9 +20,9 @@ public interface GastoDiaRepository extends JpaRepository<GastoDia, Integer> {
 	@Query(value = "select * from GastoDia where idGastoDia=?", nativeQuery = true)
 	List<GastoDia> findAllByIdGastoDia(Integer idGastoDia);
 	
-	@Modifying
-	@Transactional
-	@Query("UPDATE GastoDia SET precoCombustivel = :precoCombustivel, diaAbastecimento = :diaAbastecimento, quantidadeCombustivel = :quantidadeCombustivel, kmPorLitro = :kmPorLitro WHERE idGastoDia = :idGastoDia")
-	 public void update(@Param("precoCombustivel") Double precoCombustivel, @Param("diaAbastecimento") Date diaAbastecimento, @Param("quantidadeCombustivel") Double quantidadeCombustivel, @Param("kmPorLitro") Float kmPorLitro, @Param("idGastoDia") int idGastoDia); 
-	
+//	@Modifying
+//	@Transactional
+//	@Query("UPDATE GastoDia SET precoCombustivel = :precoCombustivel, diaAbastecimento = :diaAbastecimento, quantidadeCombustivel = :quantidadeCombustivel, kmPorLitro = :kmPorLitro WHERE idGastoDia = :idGastoDia")
+//	 public void update(@Param("precoCombustivel") Double precoCombustivel, @Param("diaAbastecimento") Date diaAbastecimento, @Param("quantidadeCombustivel") Double quantidadeCombustivel, @Param("kmPorLitro") Float kmPorLitro, @Param("idGastoDia") int idGastoDia); 
+//	
 }

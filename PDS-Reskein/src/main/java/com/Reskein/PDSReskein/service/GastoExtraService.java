@@ -28,10 +28,10 @@ public class GastoExtraService {
 		gastoExtraRepository.save(gastoExtra);
 	}
 	
-	@Transactional
-	public void editarGastoExtra (GastoExtra gastoExtra) {
-		gastoExtraRepository.update(gastoExtra.getDescricao(), gastoExtra.getValor(), gastoExtra.getIdGastoExtra());
-		}
+//	@Transactional
+//	public void editarGastoExtra (GastoExtra gastoExtra) {
+//		gastoExtraRepository.update(gastoExtra.getDescricao(), gastoExtra.getValor(), gastoExtra.getIdGastoExtra());
+//		}
 	
 	@Transactional
 	public void excluirGastoExtra (GastoExtra gastoExtra) {

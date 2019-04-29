@@ -20,9 +20,9 @@ public interface ItinerarioRepository extends JpaRepository<Itinerario, Integer>
 	@Query(value = "select * from Itinerario where idItinerario=?", nativeQuery = true)
 	List<Itinerario> findAllByIdItinerario(Integer idItinerario);
 	
-	@Modifying
-	@Transactional
-	@Query("UPDATE Itinerario SET distancia = :distancia, idPerueiro = :idPerueiro, idAluno = :idAluno, idEscola = :idEscola WHERE idItinerario = :idItinerario")
-	 public void update(@Param("distancia") Double distancia, @Param("idPerueiro") int idPerueiro, @Param("idAluno") int idAluno,@Param("idEscola") int idEscola, @Param("idItinerario") int idItinerario); 
-	
+//	@Modifying
+//	@Transactional
+//	@Query("UPDATE Itinerario SET distancia = :distancia, idPerueiro = :idPerueiro, idAluno = :idAluno, idEscola = :idEscola WHERE idItinerario = :idItinerario")
+//	 public void update(@Param("distancia") Double distancia, @Param("idPerueiro") int idPerueiro, @Param("idAluno") int idAluno,@Param("idEscola") int idEscola, @Param("idItinerario") int idItinerario); 
+//	
 }

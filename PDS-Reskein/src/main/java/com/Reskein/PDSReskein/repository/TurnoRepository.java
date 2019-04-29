@@ -19,11 +19,11 @@ public interface TurnoRepository extends JpaRepository<Turno, Integer> {
 
 	@Query(value = "select * from Turno where idTurno=?", nativeQuery = true)
 	List<Turno> findAllByIdTurno(Integer idTurno);
-	
-	@Modifying
-	@Transactional
-	@Query("UPDATE Turno SET horarioEntrada = :horarioEntrada, horarioSaida = :horarioSaida WHERE idTurno = :idTurno")
-	 public void update(@Param("horarioEntrada") Date horarioEntrada, @Param("horarioSaida") Date horarioSaida, @Param("idTurno") int idTurno); 
-	
+//	
+//	@Modifying
+//	@Transactional
+//	@Query("UPDATE Turno SET horarioEntrada = :horarioEntrada, horarioSaida = :horarioSaida WHERE idTurno = :idTurno")
+//	 public void update(@Param("horarioEntrada") Date horarioEntrada, @Param("horarioSaida") Date horarioSaida, @Param("idTurno") int idTurno); 
+//	
 	
 }

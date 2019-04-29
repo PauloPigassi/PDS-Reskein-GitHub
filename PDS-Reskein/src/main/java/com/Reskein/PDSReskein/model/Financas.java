@@ -2,6 +2,7 @@ package com.Reskein.PDSReskein.model;
 
 import java.util.List;
 
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,7 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 @Entity
 @Table(name = "Finanças")
@@ -30,17 +31,17 @@ public class Financas {
 	private int idGastoExtra;
 	
 //	Lista de alunos em financas
-	@ManyToOne
-	@JoinColumn(name = "Aluno")
-	List<Aluno> quantidadealunos;
-	
-	//Objeto gastodia, chave estrangeira
-	@OneToOne(mappedBy = "Finanças", fetch = FetchType.EAGER)
-	private GastoDia gastoDia;
-	
-	//Objeto gastoextra, chave estrangeira
-	@OneToOne(mappedBy = "Finanças", fetch = FetchType.EAGER)
-	private GastoExtra gastoExtra;
+//	@ManyToOne
+//	@JoinColumn(name = "Aluno")
+//	List<Aluno> quantidadealunos;
+//	
+//	//Objeto gastodia, chave estrangeira
+//	@OneToOne(mappedBy = "Finanças", fetch = FetchType.EAGER)
+//	private GastoDia gastoDia;
+//	
+//	//Objeto gastoextra, chave estrangeira
+//	@OneToOne(mappedBy = "Finanças", fetch = FetchType.EAGER)
+//	private GastoExtra gastoExtra;
 
 	public int getIdFinancas() {
 		return idFinancas;
@@ -82,21 +83,21 @@ public class Financas {
 		this.idGastoExtra = idGastoExtra;
 	}
 
-	public GastoDia getGastoDia() {
-		return gastoDia;
-	}
-
-	public void setGastoDia(GastoDia gastoDia) {
-		this.gastoDia = gastoDia;
-	}
-
-	public GastoExtra getGastoExtra() {
-		return gastoExtra;
-	}
-
-	public void setGastoExtra(GastoExtra gastoExtra) {
-		this.gastoExtra = gastoExtra;
-	}
+//	public GastoDia getGastoDia() {
+//		return gastoDia;
+//	}
+//
+//	public void setGastoDia(GastoDia gastoDia) {
+//		this.gastoDia = gastoDia;
+//	}
+//
+//	public GastoExtra getGastoExtra() {
+//		return gastoExtra;
+//	}
+//
+//	public void setGastoExtra(GastoExtra gastoExtra) {
+//		this.gastoExtra = gastoExtra;
+//	}
 
 	@Override
 	public int hashCode() {

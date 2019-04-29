@@ -49,16 +49,16 @@ public class VeiculoController {
 		attributes.addFlashAttribute("mensagem", "Veiculo cadastrado com sucesso!");
 		return new ModelAndView("redirect:/veiculo/mostrarVeiculos");
 	}
-	@RequestMapping(value="/editarVeiculo", method=RequestMethod.POST)
-	public ModelAndView atualizarVeiculo(@Valid Veiculo veiculo, BindingResult result, RedirectAttributes attributes) {
-		if(result.hasErrors()) {
-			return veiculo(veiculo);
-		}
-		veiculoService.editarVeiculo(veiculo);
-		 
-		attributes.addFlashAttribute("mensagem", "Veiculo editado com sucesso!");
-		return new ModelAndView("redirect:/veiculo/mostrarVeiculos");
-	}
+//	@RequestMapping(value="/editarVeiculo", method=RequestMethod.POST)
+//	public ModelAndView atualizarVeiculo(@Valid Veiculo veiculo, BindingResult result, RedirectAttributes attributes) {
+//		if(result.hasErrors()) {
+//			return veiculo(veiculo);
+//		}
+//		veiculoService.editarVeiculo(veiculo);
+//		 
+//		attributes.addFlashAttribute("mensagem", "Veiculo editado com sucesso!");
+//		return new ModelAndView("redirect:/veiculo/mostrarVeiculos");
+//	}
 
 	@RequestMapping(value = "/excluirVeiculo", method = RequestMethod.POST)
 	public ModelAndView excluirVeiculo(@Valid Veiculo veiculo, BindingResult result, RedirectAttributes attributes) {

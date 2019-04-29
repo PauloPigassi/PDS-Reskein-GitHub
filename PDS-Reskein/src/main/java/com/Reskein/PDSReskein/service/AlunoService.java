@@ -35,11 +35,11 @@ public class AlunoService {
 		
 	}
 	
-	@Transactional
-	public void editarAluno (Aluno aluno) {
-		
-			alunoRepository.update(aluno.getEndereco(), aluno.getContato(), aluno.getIdAluno());
-		}
-	
+//	@Transactional
+//	public void editarAluno (Aluno aluno) {
+//		
+//			alunoRepository.update(aluno.getEndereco(), aluno.getContato(), aluno.getIdAluno());
+//		}
+//	
 	
 }

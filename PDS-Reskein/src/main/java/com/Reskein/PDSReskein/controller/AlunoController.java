@@ -74,16 +74,16 @@ public class AlunoController {
 		return new ModelAndView("redirect:/aluno/mostrarAlunos");
 	}
 	
-	@RequestMapping(value="/editarAluno", method=RequestMethod.POST)
-	public ModelAndView atualizarAluno(@Valid Aluno aluno, BindingResult result, RedirectAttributes attributes) {
-		if(result.hasErrors()) {
-			return aluno(aluno);
-		}
-		alunoService.editarAluno(aluno);
-		 
-		attributes.addFlashAttribute("mensagem", "Aluno editado com sucesso!");
-		return new ModelAndView("redirect:/aluno/mostrarAlunos");
-	}
+//	@RequestMapping(value="/editarAluno", method=RequestMethod.POST)
+//	public ModelAndView atualizarAluno(@Valid Aluno aluno, BindingResult result, RedirectAttributes attributes) {
+//		if(result.hasErrors()) {
+//			return aluno(aluno);
+//		}
+//		alunoService.editarAluno(aluno);
+//		 
+//		attributes.addFlashAttribute("mensagem", "Aluno editado com sucesso!");
+//		return new ModelAndView("redirect:/aluno/mostrarAlunos");
+//	}
 }
 	
 	

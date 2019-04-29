@@ -20,10 +20,10 @@ public interface AlunoRepository extends JpaRepository<Aluno, Integer> {
 	@Query(value = "select * from Aluno where idAluno=?", nativeQuery = true)
 	List<Aluno> findAllByIdAluno(Integer idAluno);
 	
-	@Modifying
-	@Transactional
-	@Query("UPDATE Aluno SET endereco = :endereco, contato = :contato WHERE idAluno = :idAluno")
-	 public void update(@Param("endereco") String endereco, @Param("contato") String contato, @Param("idAluno") int idAluno); 
-	
+//	@Modifying
+//	@Transactional
+//	@Query("UPDATE Aluno SET endereco = :endereco, contato = :contato WHERE idAluno = :idAluno")
+//	 public void update(@Param("endereco") String endereco, @Param("contato") String contato, @Param("idAluno") int idAluno); 
+//	
 	
 }

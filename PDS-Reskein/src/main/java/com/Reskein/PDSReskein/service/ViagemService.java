@@ -39,10 +39,10 @@ public class ViagemService {
 		
 	}
 	
-	@Transactional
-	public void editarViagem (Viagem viagem) {		
-			viagemRepository.update(viagem.getDiaSemana(), viagem.getIdItinerario(), viagem.getPeriodo(), viagem.getIdTurno(), viagem.getIdViagem());
-		}
+//	@Transactional
+//	public void editarViagem (Viagem viagem) {		
+//			viagemRepository.update(viagem.getDiaSemana(), viagem.getIdItinerario(), viagem.getPeriodo(), viagem.getIdTurno(), viagem.getIdViagem());
+//		}
 	
 	
 	

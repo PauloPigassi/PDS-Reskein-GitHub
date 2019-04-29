@@ -2,16 +2,18 @@ package com.Reskein.PDSReskein.model;
 
 import javax.persistence.Entity;
 
+
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-
+import javax.persistence.Id;
 //import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.data.annotation.Id;
+//import org.springframework.data.annotation.Id;
 
 @Entity
-@Table(name = "Veiculo")
+@Table(name="Veiculo")
 public class Veiculo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

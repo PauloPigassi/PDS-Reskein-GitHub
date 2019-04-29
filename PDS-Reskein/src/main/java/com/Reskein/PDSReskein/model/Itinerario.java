@@ -1,6 +1,7 @@
 package com.Reskein.PDSReskein.model;
 
 import javax.persistence.Entity;
+
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,7 +9,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 @Entity
 @Table(name = "Itinerario")
@@ -27,17 +28,17 @@ public class Itinerario {
 	@NotBlank(message = "ID escola obrigatória")
 	
 	
-	//Endereco perueiro
-	@OneToOne(mappedBy = "Evento", fetch = FetchType.EAGER)
-	Perueiro perueiro;
-	
-	//Endereco aluno
-	@OneToOne(mappedBy = "Evento", fetch = FetchType.EAGER)
-	Aluno aluno;
-	
-	//Endereco escola
-	@OneToOne(mappedBy = "Evento", fetch = FetchType.EAGER)
-	Escola escola;
+//	//Endereco perueiro
+//	@OneToOne(mappedBy = "Evento", fetch = FetchType.EAGER)
+//	Perueiro perueiro;
+//	
+//	//Endereco aluno
+//	@OneToOne(mappedBy = "Evento", fetch = FetchType.EAGER)
+	//Aluno aluno;
+//	
+//	//Endereco escola
+//	@OneToOne(mappedBy = "Evento", fetch = FetchType.EAGER)
+//	Escola escola;
 
 	public int getIdItinerario() {
 		return idItinerario;
@@ -79,29 +80,29 @@ public class Itinerario {
 		this.idEscola = idEscola;
 	}
 
-	public Perueiro getPerueiro() {
-		return perueiro;
-	}
+//	public Perueiro getPerueiro() {
+//		return perueiro;
+//	}
+//
+//	public void setPerueiro(Perueiro perueiro) {
+//		this.perueiro = perueiro;
+//	}
 
-	public void setPerueiro(Perueiro perueiro) {
-		this.perueiro = perueiro;
-	}
+//	public Aluno getAluno() {
+//		return aluno;
+//	}
+//
+//	public void setAluno(Aluno aluno) {
+//		this.aluno = aluno;
+//	}
 
-	public Aluno getAluno() {
-		return aluno;
-	}
-
-	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
-	}
-
-	public Escola getEscola() {
-		return escola;
-	}
-
-	public void setEscola(Escola escola) {
-		this.escola = escola;
-	}
+//	public Escola getEscola() {
+//		return escola;
+//	}
+//
+//	public void setEscola(Escola escola) {
+//		this.escola = escola;
+//	}
 
 	@Override
 	public int hashCode() {

@@ -2,6 +2,7 @@ package com.Reskein.PDSReskein.model;
 
 import java.util.List;
 
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 
 @Entity
@@ -33,13 +34,13 @@ public class Viagem {
 	private int idTurno;
 	
 //	Lista de alunos em viagens
-	@ManyToOne
-	@JoinColumn(name = "Aluno")
-	private List<Aluno> alunos;
-	
-	//Objeto itinerario, chave estrangeira
-	@OneToOne(mappedBy = "Viagem", fetch = FetchType.EAGER)
-	private Itinerario itinerario;
+//	@ManyToOne
+//	@JoinColumn(name = "Aluno")
+//	private List<Aluno> alunos;
+//	
+//	//Objeto itinerario, chave estrangeira
+//	@OneToOne(mappedBy = "Viagem", fetch = FetchType.EAGER)
+//	private Itinerario itinerario;
 	
 	
 	

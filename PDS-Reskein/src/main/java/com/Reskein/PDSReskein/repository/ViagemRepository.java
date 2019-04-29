@@ -20,11 +20,11 @@ public interface ViagemRepository extends JpaRepository<Viagem, Integer> {
 	List<Viagem> findAllByIdViagem(Integer idViagem);
 	
 	
-	@Modifying
-	@Transactional
-	@Query("UPDATE Viagem SET diaSemana = :diaSemana, idItineario = :idItinerario, periodo = :periodo, idTurno = :idTurno WHERE idViagem = :idViagem")
-	 public void update(@Param("diaSemana") String diaSemana, @Param("idItinerario") int idItinerario, @Param("periodo") String periodo, @Param("idTurno") int idTurno, @Param("idviagem") int idViagem); 
-	
+//	@Modifying
+//	@Transactional
+//	@Query("UPDATE Viagem SET diaSemana = :diaSemana, idItineario = :idItinerario, periodo = :periodo, idTurno = :idTurno WHERE idViagem = :idViagem")
+//	 public void update(@Param("diaSemana") String diaSemana, @Param("idItinerario") int idItinerario, @Param("periodo") String periodo, @Param("idTurno") int idTurno, @Param("idviagem") int idViagem); 
+//	
 	
 	
 	

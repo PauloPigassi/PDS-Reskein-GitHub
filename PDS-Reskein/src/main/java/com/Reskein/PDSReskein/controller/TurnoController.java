@@ -52,16 +52,16 @@ public class TurnoController {
 		return new ModelAndView("redirect:/turno/mostrarTurnos");
 	}
 
-	@RequestMapping(value="/editarTurno", method=RequestMethod.POST)
-	public ModelAndView atualizarTurno(@Valid Turno turno, BindingResult result, RedirectAttributes attributes) {
-		if(result.hasErrors()) {
-			return turno(turno);
-		}
-		turnoService.editarTurno(turno);
-		 
-		attributes.addFlashAttribute("mensagem", "Turno editado com sucesso!");
-		return new ModelAndView("redirect:/turno/mostrarTurnos");
-	}
+//	@RequestMapping(value="/editarTurno", method=RequestMethod.POST)
+//	public ModelAndView atualizarTurno(@Valid Turno turno, BindingResult result, RedirectAttributes attributes) {
+//		if(result.hasErrors()) {
+//			return turno(turno);
+//		}
+//		turnoService.editarTurno(turno);
+//		 
+//		attributes.addFlashAttribute("mensagem", "Turno editado com sucesso!");
+//		return new ModelAndView("redirect:/turno/mostrarTurnos");
+//	}
 	
 	@RequestMapping(value="/adicionarTurno",method=RequestMethod.POST)
 	public ModelAndView adicionarTurno(@Valid Turno turno, BindingResult result, RedirectAttributes attributes) {
