@@ -26,6 +26,7 @@ public class Itinerario {
 	@NotBlank(message = "ID aluno obrigatório")
 	private int idEscola;
 	@NotBlank(message = "ID escola obrigatória")
+	private String periodo;
 	
 	
 //	//Endereco perueiro
@@ -39,6 +40,14 @@ public class Itinerario {
 //	//Endereco escola
 //	@OneToOne(mappedBy = "Evento", fetch = FetchType.EAGER)
 //	Escola escola;
+
+	public String getPeriodo() {
+		return periodo;
+	}
+
+	public void setPeriodo(String periodo) {
+		this.periodo = periodo;
+	}
 
 	public int getIdItinerario() {
 		return idItinerario;

@@ -57,7 +57,7 @@ public class EscolaController {
 		escolaService.salvarEscola(escola);
 
 		attributes.addFlashAttribute("mensagem", "Escola cadastrado com sucesso!");
-		return new ModelAndView("redirect:/escola/mostrarEscolas");
+		return new ModelAndView("redirect:/escola/criarEscola");
 	}
 	
 //	@RequestMapping(value="/editarEscola", method=RequestMethod.POST)

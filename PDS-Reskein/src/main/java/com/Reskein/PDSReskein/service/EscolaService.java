@@ -19,12 +19,15 @@ public class EscolaService {
 	
 	@Transactional
 	public void salvarEscola(Escola escola) {
-		Optional<Escola> escolaservice = escolaRepository.findById(escola.getIdEscola());
-		escola.setIdEscola(escolaservice.get().getIdEscola());
-		escola.setEndereco(escolaservice.get().getEndereco());
+		//Optional<Escola> escolaservice = escolaRepository.findById(escola.getIdEscola());
+	//	escola.setIdEscola(escolaservice.get().getIdEscola());
+		//escola.setEndereco(escolaservice.get().getEndereco());
+		//escola.setNome(escolaservice.get().getNome());
 		
 		escolaRepository.save(escola);
 	}
+	
+	
 	
 	@Transactional
 	public void excluirEscola (Escola escola) {

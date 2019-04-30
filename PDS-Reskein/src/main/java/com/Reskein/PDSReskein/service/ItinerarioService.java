@@ -26,6 +26,7 @@ public class ItinerarioService {
 		itinerario.setIdPerueiro(itinerarioservice.get().getIdPerueiro());
 		itinerario.setIdAluno(itinerarioservice.get().getIdAluno());
 		itinerario.setIdEscola(itinerarioservice.get().getIdEscola());
+		itinerario.setPeriodo(itinerarioservice.get().getPeriodo());
 	//	itinerario.setPerueiro(itinerarioservice.get().getPerueiro());
 		//itinerario.setAluno(itinerarioservice.get().getAluno());
 	//	itinerario.setEscola(itinerarioservice.get().getEscola());

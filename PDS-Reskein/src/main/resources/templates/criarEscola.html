@@ -12,20 +12,20 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <!-- Bootstrap css -->
-<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
 
 <!-- Propeller css -->
-<link rel="stylesheet" type="text/css" href="assets/css/propeller.min.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/propeller.min.css">
 
 <!-- Propeller theme css-->
-<link rel="stylesheet" type="text/css" href="themes/css/propeller-theme.css" />
+<link rel="stylesheet" type="text/css" href="../themes/css/propeller-theme.css" />
 
 <!-- Propeller admin theme css-->
 
-<link rel="stylesheet" type="text/css" href="themes/css/propeller-admin.css">
+<link rel="stylesheet" type="text/css" href="../themes/css/propeller-admin.css">
 
 <!--CSS externo-->
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="../css/style.css">
 
 
 </head>
@@ -188,7 +188,7 @@
 </aside><!-- End Left sidebar -->
 <!-- Sidebar Ends -->
 
-<form action="criarviagem.php" method="POST">
+<form th:object="${escola}" th:action="@{/escola/adicionarEscola}" method="POST">
 <div id="content" class="pmd-content">
 <center><h1> Cadastro de nova Escola </h1> </center>
 <div class="container">
@@ -200,7 +200,7 @@
 					
 					<div class="form-group">
                             <label for="regular1" class="control-label">Nome da escola</label>
-                            <input type="text" id="regular1" class="form-control">
+                            <input type="text" id="nomeEscola" th:field="*{nome}" class="form-control">
                         </div>
 					 
 					</div>
@@ -212,7 +212,7 @@
                                 
                                 <div class="form-group">
                                         <label for="regular1" class="control-label">Endereço da escola</label>
-                                        <input type="text" id="regular1" class="form-control">
+                                        <input type="text" id="enderecoEscola" th:field="*{endereco}" class="form-control">
                                     </div>
                                  
                                 </div>
