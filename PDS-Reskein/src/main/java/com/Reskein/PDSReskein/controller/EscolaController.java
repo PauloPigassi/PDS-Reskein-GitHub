@@ -45,6 +45,7 @@ public class EscolaController {
 
 		mv.addObject("escola", escolaRepository.findAll( ));
 		return mv;
+		
 	}
 	
 	
