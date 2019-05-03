@@ -19,6 +19,8 @@ public class Escola {
 	private String endereco;
 	@NotBlank(message = "nome obrigatório")
 	private String nome;
+	@NotBlank(message = "Telefone obrigatório")
+	private String telefone;
 	
 	public String getNome() {
 		return nome;

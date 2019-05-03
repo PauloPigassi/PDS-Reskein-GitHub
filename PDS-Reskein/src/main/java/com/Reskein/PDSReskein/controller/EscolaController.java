@@ -38,10 +38,11 @@ public class EscolaController {
 
 		return mv;
 	}
+	
 
 	@GetMapping(value = "/mostrarEscolas")
 	public ModelAndView escola(Escola escola) {
-		ModelAndView mv = new ModelAndView("escola");
+		ModelAndView mv = new ModelAndView("visualizarEscola");
 
 		mv.addObject("escola", escolaRepository.findAll( ));
 		return mv;

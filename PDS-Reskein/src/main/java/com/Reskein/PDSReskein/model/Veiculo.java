@@ -24,6 +24,26 @@ public class Veiculo {
 	private int lugares;
 	@NotBlank(message = "km/litro obrigatório")
 	private double kmPorLitro;
+	@NotBlank(message = "Placa obrigatória")
+	private String placa;
+	@NotBlank(message = "Ano obrigatório")
+	private int ano;
+
+	public String getPlaca() {
+		return placa;
+	}
+
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+
+	public int getAno() {
+		return ano;
+	}
+
+	public void setAno(int ano) {
+		this.ano = ano;
+	}
 
 	public double getKmPorLitro() {
 		return kmPorLitro;

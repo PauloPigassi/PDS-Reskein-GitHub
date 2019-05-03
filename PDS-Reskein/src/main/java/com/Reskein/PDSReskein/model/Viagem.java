@@ -24,14 +24,15 @@ public class Viagem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idViagem;
-	@NotBlank(message = "Dia da semana obrigatório")
-	private String diaSemana;
 	@NotBlank(message = "Id Itinerario obrigatório")
 	private int idItinerario;
-	@NotBlank(message = "Periodo obrigatório")
-	private String periodo;
 	@NotBlank(message = "Id Turno obrigatório")
 	private int idTurno;
+	@NotBlank(message = "Dia da semana obrigatório")
+	private String diaSemana;	
+	@NotBlank(message = "Periodo obrigatório")
+	private String periodo;
+	
 	
 //	Lista de alunos em viagens
 //	@ManyToOne

@@ -1,15 +1,14 @@
 package com.Reskein.PDSReskein.model;
 
-import javax.persistence.Column;
+import java.util.Date;
 
 import javax.persistence.Entity;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
-import javax.persistence.Id;
 
 @Entity
 @Table(name = "GastoExtra")
@@ -21,6 +20,14 @@ public class GastoExtra {
 	private String descricao;
 	@NotBlank(message = "Valor obrigatório")
 	private Double valor;
+	@NotBlank(message = "Data obrigatória")
+	private Date data;
+	public Date getData() {
+		return data;
+	}
+	public void setData(Date data) {
+		this.data = data;
+	}
 	public int getIdGastoExtra() {
 		return idGastoExtra;
 	}
