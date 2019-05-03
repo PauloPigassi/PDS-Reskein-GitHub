@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Login | Propeller - Admin Dashboard">
 <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
-<title>Login | Propeller - Admin Dashboard</title>
+<title>Perueiro's</title>
 <link rel="shortcut icon" type="image/x-icon" href="themes/images/favicon.ico">
 
 <!-- Google icon -->
@@ -26,15 +27,22 @@
 </head>
 
 <body class="body-custom">
+
 <div class="logincard">
   	<div class="pmd-card card-default pmd-z-depth">
 		<div class="login-card">
-			<form>	
+		 <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div> 
+			<form  th:action="@{/login}" method="post">	
 				<div class="pmd-card-title card-header-border text-center">
 					<div class="loginlogo">
 						<a href="javascript:void(0);"><img src="img/perua-icon.jpg" alt="Logo"></a>
 					</div>
-					<h3> <strong>RESKEIN</strong></h3>
+					<h3> <strong>PERUEIRO'S</strong></h3>
 				</div>
 				
 				<div class="pmd-card-body">
@@ -43,9 +51,9 @@
                     <div class="form-group pmd-textfield pmd-textfield-floating-label">
                         
                         <div class="input-group">
-							<div class="input-group-addon"><i class="material-icons md-dark pmd-sm"></i></div>
+							<div class="input-group-addon"><i class="material-icons md-dark pmd-sm">perm_identity</i></div>
 							
-                            <input type="text" class="form-control usuario-input" id="exampleInputAmount" placeholder="Usuario" required>
+                            <input type="text" class="form-control usuario-input" name="username" id="exampleInputAmount" placeholder="Usuario" required>
                         </div>
                     </div>
                     
@@ -53,7 +61,7 @@
                         <label for="inputError1" class="control-label pmd-input-group-label">Senha</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">lock_outline</i></div>
-                            <input type="text" class="form-control" id="exampleInputAmount">
+                            <input type="password" class="form-control" name="password" id="exampleInputAmount">
                         </div>
 					</div>
 
@@ -70,7 +78,7 @@
 							<a href="javascript:void(0);">Esqueceu senha?</a>
 						</span>
 					</div>
-					<a href="/dashboard" type="button" class="btn pmd-ripple-effect btn-primary btn-block" onclick="isNull()">Entrar</a>
+					<button type="submit" class="btn pmd-ripple-effect btn-primary btn-block">Entrar</button>
                     
 					
 				</div>

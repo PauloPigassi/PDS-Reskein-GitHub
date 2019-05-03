@@ -19,7 +19,7 @@ public class PostController {
 //	@Autowired
 //	private PerueiroService perueiroService;
 	
-	@GetMapping(value = "/login")
+	@GetMapping(value = "/")
 	public ModelAndView login(Perueiro perueiro) {
 		ModelAndView mv = new ModelAndView("login");
 
