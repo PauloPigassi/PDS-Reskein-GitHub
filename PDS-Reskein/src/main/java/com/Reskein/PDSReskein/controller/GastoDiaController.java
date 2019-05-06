@@ -29,29 +29,40 @@ public class GastoDiaController {
 	
 	@Autowired
 	private GastoDiaRepository gastoDiaRepository;
-	
+
 	@Autowired
 	private GastoDiaService gastoDiaService;
 	
-	@GetMapping(value = "/mostrarGastoDias")
-	public ModelAndView gastoDia(GastoDia gastoDia) {
-		ModelAndView mv = new ModelAndView("gastoDia");
-		
-		mv.addObject("gastoDia", gastoDiaRepository.findAll());
+	@GetMapping(value = "/criarGastoDia")
+	public ModelAndView criarGastoDia(GastoDia gastoDia) {
+		ModelAndView mv = new ModelAndView("criarGastoDia");
+
 		return mv;
 	}
 	
-	@RequestMapping(value = "/excluirGastoDia", method = RequestMethod.POST)
-	public ModelAndView excluirGastoDia(@Valid GastoDia gastoDia, BindingResult result, RedirectAttributes attributes) {
+
+	@GetMapping(value = "/mostrarGastoDias")
+	public ModelAndView gastoDia(GastoDia gastoDia) {
+		ModelAndView mv = new ModelAndView("visualizarGastoDia");
+
+		mv.addObject("gastoDia", gastoDiaRepository.findAll( ));
+		return mv;
+		
+	}
+	
+	
+
+	@RequestMapping(value = "/adicionarGastoDia", method = RequestMethod.POST)
+	public ModelAndView adicionarGastoDia(@Valid GastoDia gastoDia, BindingResult result, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
 			return gastoDia(gastoDia);
 		}
-		gastoDiaService.excluirGastoDia(gastoDia);
+		gastoDiaService.salvarGastoDia(gastoDia);
 
-		attributes.addFlashAttribute("mensagem", "GastoDia removido com sucesso!");
-		return new ModelAndView("redirect:/gastoDia/mostrarGastoDia");
+		attributes.addFlashAttribute("mensagem", "GastoDia cadastrado com sucesso!");
+		return new ModelAndView("redirect:/gastoDia/criarGastoDia");
 	}
-
+	
 //	@RequestMapping(value="/editarGastoDia", method=RequestMethod.POST)
 //	public ModelAndView atualizarGastoDia(@Valid GastoDia gastoDia, BindingResult result, RedirectAttributes attributes) {
 //		if(result.hasErrors()) {
@@ -60,17 +71,18 @@ public class GastoDiaController {
 //		gastoDiaService.editarGastoDia(gastoDia);
 //		 
 //		attributes.addFlashAttribute("mensagem", "GastoDia editado com sucesso!");
-//		return new ModelAndView("redirect:/gastoDia/mostrarGastoDia");
+//		return new ModelAndView("redirect:/gastoDia/mostrarGastoDias");
 //	}
-	
-	@RequestMapping(value="/adicionarGastoDia",method=RequestMethod.POST)
-	public ModelAndView adicionarGastoDia(@Valid GastoDia gastoDia, BindingResult result, RedirectAttributes attributes) {
-		if(result.hasErrors()) {
+
+	@RequestMapping(value = "/excluirGastoDia", method = RequestMethod.POST)
+	public ModelAndView excluirGastoDia(@Valid GastoDia gastoDia, BindingResult result, RedirectAttributes attributes) {
+		if (result.hasErrors()) {
 			return gastoDia(gastoDia);
 		}
-		gastoDiaService.salvarGastoDia(gastoDia);
-		
-		attributes.addFlashAttribute("mensagem", "Ocorrência cadastrada com sucesso!");
+		gastoDiaService.excluirGastoDia(gastoDia);
+
+		attributes.addFlashAttribute("mensagem", "GastoDia removido com sucesso!");
 		return new ModelAndView("redirect:/gastoDia/mostrarGastoDias");
-	}}
-	
+	}
+
+}

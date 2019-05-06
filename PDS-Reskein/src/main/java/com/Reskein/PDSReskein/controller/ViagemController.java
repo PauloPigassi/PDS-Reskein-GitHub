@@ -30,22 +30,23 @@ public class ViagemController {
 
 	@Autowired
 	private ViagemService viagemService;
+	
+	@GetMapping(value = "/criarViagem")
+	public ModelAndView criarViagem(Viagem viagem) {
+		ModelAndView mv = new ModelAndView("criarViagem");
 
-	@GetMapping(value = "/mostrarViagens")
+		return mv;
+	}
+	
+
+	@GetMapping(value = "/mostrarViagems")
 	public ModelAndView viagem(Viagem viagem) {
-		ModelAndView mv = new ModelAndView("mostrarViagens");
+		ModelAndView mv = new ModelAndView("visualizarViagem");
 
 		mv.addObject("viagem", viagemRepository.findAll( ));
 		return mv;
+		
 	}
-	@GetMapping(value = "/criarviagem")
-	public ModelAndView dashboard(Viagem viagem) {
-		ModelAndView mv = new ModelAndView("criarviagem");
-
-		return mv;
-	}
-	
-	
 	
 	
 
@@ -56,23 +57,21 @@ public class ViagemController {
 		}
 		viagemService.salvarViagem(viagem);
 
-		attributes.addFlashAttribute("mensagem", "Viagem cadastrada com sucesso!");
-		return new ModelAndView("redirect:/viagem/mostrarViagens");
+		attributes.addFlashAttribute("mensagem", "Viagem cadastrado com sucesso!");
+		return new ModelAndView("redirect:/viagem/criarViagem");
 	}
 	
-
-//	@RequestMapping(value="/editarViagem", method = RequestMethod.POST)
+//	@RequestMapping(value="/editarViagem", method=RequestMethod.POST)
 //	public ModelAndView atualizarViagem(@Valid Viagem viagem, BindingResult result, RedirectAttributes attributes) {
 //		if(result.hasErrors()) {
 //			return viagem(viagem);
 //		}
-//		
 //		viagemService.editarViagem(viagem);
 //		 
-//		attributes.addFlashAttribute("mensagem", "Viagem editada com sucesso!");
-//		return new ModelAndView("redirect:/viagem/mostrarViagens");
+//		attributes.addFlashAttribute("mensagem", "Viagem editado com sucesso!");
+//		return new ModelAndView("redirect:/viagem/mostrarViagems");
 //	}
-	
+
 	@RequestMapping(value = "/excluirViagem", method = RequestMethod.POST)
 	public ModelAndView excluirViagem(@Valid Viagem viagem, BindingResult result, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
@@ -80,8 +79,8 @@ public class ViagemController {
 		}
 		viagemService.excluirViagem(viagem);
 
-		attributes.addFlashAttribute("mensagem", "Viagem removida com sucesso!");
-		return new ModelAndView("redirect:/viagem/mostrarViagens");
+		attributes.addFlashAttribute("mensagem", "Viagem removido com sucesso!");
+		return new ModelAndView("redirect:/viagem/mostrarViagems");
 	}
-	
+
 }

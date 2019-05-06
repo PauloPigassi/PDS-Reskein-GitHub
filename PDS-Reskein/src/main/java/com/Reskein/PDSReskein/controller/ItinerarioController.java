@@ -29,18 +29,51 @@ public class ItinerarioController {
 	
 	@Autowired
 	private ItinerarioRepository itinerarioRepository;
-	
+
 	@Autowired
 	private ItinerarioService itinerarioService;
 	
-	@GetMapping(value = "/mostrarItinerarios")
-	public ModelAndView itinerario(Itinerario itinerario) {
-		ModelAndView mv = new ModelAndView("itinerario");
-		
-		mv.addObject("itinerario", itinerarioRepository.findAll());
+	@GetMapping(value = "/criarItinerario")
+	public ModelAndView criarItinerario(Itinerario itinerario) {
+		ModelAndView mv = new ModelAndView("criarItinerario");
+
 		return mv;
 	}
 	
+
+	@GetMapping(value = "/mostrarItinerarios")
+	public ModelAndView itinerario(Itinerario itinerario) {
+		ModelAndView mv = new ModelAndView("visualizarItinerario");
+
+		mv.addObject("itinerario", itinerarioRepository.findAll( ));
+		return mv;
+		
+	}
+	
+	
+
+	@RequestMapping(value = "/adicionarItinerario", method = RequestMethod.POST)
+	public ModelAndView adicionarItinerario(@Valid Itinerario itinerario, BindingResult result, RedirectAttributes attributes) {
+		if (result.hasErrors()) {
+			return itinerario(itinerario);
+		}
+		itinerarioService.salvarItinerario(itinerario);
+
+		attributes.addFlashAttribute("mensagem", "Itinerario cadastrado com sucesso!");
+		return new ModelAndView("redirect:/itinerario/criarItinerario");
+	}
+	
+//	@RequestMapping(value="/editarItinerario", method=RequestMethod.POST)
+//	public ModelAndView atualizarItinerario(@Valid Itinerario itinerario, BindingResult result, RedirectAttributes attributes) {
+//		if(result.hasErrors()) {
+//			return itinerario(itinerario);
+//		}
+//		itinerarioService.editarItinerario(itinerario);
+//		 
+//		attributes.addFlashAttribute("mensagem", "Itinerario editado com sucesso!");
+//		return new ModelAndView("redirect:/itinerario/mostrarItinerarios");
+//	}
+
 	@RequestMapping(value = "/excluirItinerario", method = RequestMethod.POST)
 	public ModelAndView excluirItinerario(@Valid Itinerario itinerario, BindingResult result, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
@@ -52,25 +85,4 @@ public class ItinerarioController {
 		return new ModelAndView("redirect:/itinerario/mostrarItinerarios");
 	}
 
-//	@RequestMapping(value="/editarItinerario", method=RequestMethod.POST)
-//	public ModelAndView atualizarItinerario(@Valid Itinerario itinerario, BindingResult result, RedirectAttributes attributes) {
-//		if(result.hasErrors()) {
-//			return itinerario(itinerario);
-//		}
-//		itinerarioService.editarItinerario(itinerario);
-//		 
-//		attributes.addFlashAttribute("mensagem", "Itinerario editado com sucesso!");
-//		return new ModelAndView("redirect:/itinerario/mostrarItinerarios");
-//	}
-	
-	@RequestMapping(value="/adicionarItinerario",method=RequestMethod.POST)
-	public ModelAndView adicionarItinerario(@Valid Itinerario itinerario, BindingResult result, RedirectAttributes attributes) {
-		if(result.hasErrors()) {
-			return itinerario(itinerario);
-		}
-		itinerarioService.salvarItinerario(itinerario);
-		
-		attributes.addFlashAttribute("mensagem", "Ocorrência cadastrada com sucesso!");
-		return new ModelAndView("redirect:/itinerario/mostrarItinerarios");
-	}
 }

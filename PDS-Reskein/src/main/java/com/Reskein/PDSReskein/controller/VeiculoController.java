@@ -30,14 +30,25 @@ public class VeiculoController {
 
 	@Autowired
 	private VeiculoService veiculoService;
+	
+	@GetMapping(value = "/criarVeiculo")
+	public ModelAndView criarVeiculo(Veiculo veiculo) {
+		ModelAndView mv = new ModelAndView("criarVeiculo");
+
+		return mv;
+	}
+	
 
 	@GetMapping(value = "/mostrarVeiculos")
 	public ModelAndView veiculo(Veiculo veiculo) {
-		ModelAndView mv = new ModelAndView("veiculo");
+		ModelAndView mv = new ModelAndView("visualizarVeiculo");
 
 		mv.addObject("veiculo", veiculoRepository.findAll( ));
 		return mv;
+		
 	}
+	
+	
 
 	@RequestMapping(value = "/adicionarVeiculo", method = RequestMethod.POST)
 	public ModelAndView adicionarVeiculo(@Valid Veiculo veiculo, BindingResult result, RedirectAttributes attributes) {
@@ -47,8 +58,9 @@ public class VeiculoController {
 		veiculoService.salvarVeiculo(veiculo);
 
 		attributes.addFlashAttribute("mensagem", "Veiculo cadastrado com sucesso!");
-		return new ModelAndView("redirect:/veiculo/mostrarVeiculos");
+		return new ModelAndView("redirect:/veiculo/criarVeiculo");
 	}
+	
 //	@RequestMapping(value="/editarVeiculo", method=RequestMethod.POST)
 //	public ModelAndView atualizarVeiculo(@Valid Veiculo veiculo, BindingResult result, RedirectAttributes attributes) {
 //		if(result.hasErrors()) {

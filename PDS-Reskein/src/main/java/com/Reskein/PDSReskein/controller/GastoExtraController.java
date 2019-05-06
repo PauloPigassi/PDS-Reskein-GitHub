@@ -29,28 +29,40 @@ public class GastoExtraController {
 	
 	@Autowired
 	private GastoExtraRepository gastoExtraRepository;
-	
+
 	@Autowired
 	private GastoExtraService gastoExtraService;
 	
-	@GetMapping(value = "/mostrarGastoExtras")
-	public ModelAndView gastoExtra(GastoExtra gastoExtra) {
-		ModelAndView mv = new ModelAndView("gastoExtra");
-		
-		mv.addObject("gastoExtra", gastoExtraRepository.findAll());
+	@GetMapping(value = "/criarGastoExtra")
+	public ModelAndView criarGastoExtra(GastoExtra gastoExtra) {
+		ModelAndView mv = new ModelAndView("criarGastoExtra");
+
 		return mv;
 	}
-	@RequestMapping(value = "/excluirGastoExtra", method = RequestMethod.POST)
-	public ModelAndView excluirGastoExtra(@Valid GastoExtra gastoExtra, BindingResult result, RedirectAttributes attributes) {
+	
+
+	@GetMapping(value = "/mostrarGastoExtras")
+	public ModelAndView gastoExtra(GastoExtra gastoExtra) {
+		ModelAndView mv = new ModelAndView("visualizarGastoExtra");
+
+		mv.addObject("gastoExtra", gastoExtraRepository.findAll( ));
+		return mv;
+		
+	}
+	
+	
+
+	@RequestMapping(value = "/adicionarGastoExtra", method = RequestMethod.POST)
+	public ModelAndView adicionarGastoExtra(@Valid GastoExtra gastoExtra, BindingResult result, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
 			return gastoExtra(gastoExtra);
 		}
-		gastoExtraService.excluirGastoExtra(gastoExtra);
+		gastoExtraService.salvarGastoExtra(gastoExtra);
 
-		attributes.addFlashAttribute("mensagem", "GastoExtra removido com sucesso!");
-		return new ModelAndView("redirect:/gastoExtra/mostrarGastoExtra");
+		attributes.addFlashAttribute("mensagem", "GastoExtra cadastrado com sucesso!");
+		return new ModelAndView("redirect:/gastoExtra/criarGastoExtra");
 	}
-
+	
 //	@RequestMapping(value="/editarGastoExtra", method=RequestMethod.POST)
 //	public ModelAndView atualizarGastoExtra(@Valid GastoExtra gastoExtra, BindingResult result, RedirectAttributes attributes) {
 //		if(result.hasErrors()) {
@@ -59,17 +71,18 @@ public class GastoExtraController {
 //		gastoExtraService.editarGastoExtra(gastoExtra);
 //		 
 //		attributes.addFlashAttribute("mensagem", "GastoExtra editado com sucesso!");
-//		return new ModelAndView("redirect:/gastoExtra/mostrarGastoExtra");
+//		return new ModelAndView("redirect:/gastoExtra/mostrarGastoExtras");
 //	}
-	
-	@RequestMapping(value="/adicionarGastoExtra",method=RequestMethod.POST)
-	public ModelAndView adicionarGastoExtra(@Valid GastoExtra gastoExtra, BindingResult result, RedirectAttributes attributes) {
-		if(result.hasErrors()) {
+
+	@RequestMapping(value = "/excluirGastoExtra", method = RequestMethod.POST)
+	public ModelAndView excluirGastoExtra(@Valid GastoExtra gastoExtra, BindingResult result, RedirectAttributes attributes) {
+		if (result.hasErrors()) {
 			return gastoExtra(gastoExtra);
 		}
-		gastoExtraService.salvarGastoExtra(gastoExtra);
-		
-		attributes.addFlashAttribute("mensagem", "Ocorrência cadastrada com sucesso!");
+		gastoExtraService.excluirGastoExtra(gastoExtra);
+
+		attributes.addFlashAttribute("mensagem", "GastoExtra removido com sucesso!");
 		return new ModelAndView("redirect:/gastoExtra/mostrarGastoExtras");
 	}
+
 }

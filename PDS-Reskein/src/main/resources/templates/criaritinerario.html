@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Alert | Propeller - Admin Dashboard">
+	<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+	<title>Alert | Propeller - Admin Dashboard</title>
+	<link rel="shortcut icon" type="image/x-icon" href="themes/images/favicon.ico">
+
+	<!-- Google icon -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- Bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+	<!-- Propeller css -->
+	<link rel="stylesheet" type="text/css" href="assets/css/propeller.min.css">
+
+	<!-- Propeller theme css-->
+	<link rel="stylesheet" type="text/css" href="themes/css/propeller-theme.css" />
+
+	<!-- Propeller admin theme css-->
+	<link rel="stylesheet" type="text/css" href="themes/css/propeller-admin.css">
+
+	<!--CSS externo-->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+</head>
+
+<body>
+	<!-- Header Starts -->
+	<!--Start Nav bar -->
+	<nav class="navbar navbar-inverse navbar-fixed-top pmd-navbar pmd-z-depth">
+
+		<div class="container-fluid topBar">
+			<div class="pmd-navbar-right-icon pull-right navigation">
+
+
+				<!-- Notifications -->
+				<div class="dropdown notification icons pmd-dropdown">
+
+					<a href="javascript:void(0)" title="Notification" class="dropdown-toggle pmd-ripple-effect" data-toggle="dropdown" role="button"
+					 aria-expanded="true">
+						<div data-badge="3" class="material-icons md-light pmd-sm pmd-badge  pmd-badge-overlap">notifications_none</div>
+					</a>
+
+					<div class="dropdown-menu dropdown-menu-right pmd-card pmd-card-default pmd-z-depth" role="menu">
+						<!-- Card header -->
+						<div class="pmd-card-title">
+							<div class="media-body media-middle">
+								<a href="notifications.html" class="pull-right">3 new notifications</a>
+								<h3 class="pmd-card-title-text">Notifications</h3>
+							</div>
+						</div>
+
+						<!-- Notifications list -->
+						<ul class="list-group pmd-list-avatar pmd-card-list">
+							<li class="list-group-item hidden">
+								<p class="notification-blank">
+									<span class="dic dic-notifications-none"></span>
+									<span>You don´t have any notifications</span>
+								</p>
+							</li>
+							<li class="list-group-item unread">
+								<a href="javascript:void(0)">
+									<div class="media-left">
+										<span class="avatar-list-img40x40">
+											<img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="themes/images/profile-1.png" data-holder-rendered="true">
+										</span>
+									</div>
+									<div class="media-body">
+										<span class="list-group-item-heading"><span>Prathit</span> posted a new challanegs</span>
+										<span class="list-group-item-text">5 Minutes ago</span>
+									</div>
+								</a>
+							</li>
+							<li class="list-group-item">
+								<a href="javascript:void(0)">
+									<div class="media-left">
+										<span class="avatar-list-img40x40">
+											<img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="themes/images/profile-2.png" data-holder-rendered="true">
+										</span>
+									</div>
+									<div class="media-body">
+										<span class="list-group-item-heading"><span>Keel</span> Cloned 2 challenges.</span>
+										<span class="list-group-item-text">15 Minutes ago</span>
+									</div>
+								</a>
+							</li>
+							<li class="list-group-item unread">
+								<a href="javascript:void(0)">
+									<div class="media-left">
+										<span class="avatar-list-img40x40">
+											<img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="themes/images/profile-3.png" data-holder-rendered="true">
+										</span>
+									</div>
+
+									<div class="media-body">
+										<span class="list-group-item-heading"><span>John</span> posted new collection.</span>
+										<span class="list-group-item-text">25 Minutes ago</span>
+									</div>
+								</a>
+							</li>
+							<li class="list-group-item unread">
+								<a href="javascript:void(0)">
+									<div class="media-left">
+										<span class="avatar-list-img40x40">
+											<img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="themes/images/profile-4.png" data-holder-rendered="true">
+										</span>
+									</div>
+									<div class="media-body">
+										<span class="list-group-item-heading"><span>Valerii</span> Shared 5 collection.</span>
+										<span class="list-group-item-text">30 Minutes ago</span>
+									</div>
+								</a>
+							</li>
+						</ul><!-- End notifications list -->
+
+					</div>
+
+
+				</div> <!-- End notifications -->
+			</div>
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<a href="javascript:void(0);" data-target="basicSidebar" data-placement="left" data-position="slidepush" is-open="true" is-open-width="1200"
+				 class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect pull-left margin-r8 pmd-sidebar-toggle"><i class="material-icons md-light">menu</i></a>
+				<a href="index.html" class="navbar-brand">
+
+				</a>
+			</div>
+		</div>
+
+	</nav>
+	<!--End Nav bar -->
+	<!-- Header Ends -->
+
+	<!-- Sidebar Starts -->
+	<div class="pmd-sidebar-overlay"></div>
+
+	<!-- Left sidebar -->
+	<aside id="basicSidebar" class="pmd-sidebar  sidebar-default pmd-sidebar-slide-push pmd-sidebar-left pmd-sidebar-open bg-fill-darkblue sidebar-with-icons"
+	 role="navigation">
+		<ul class="nav pmd-sidebar-nav">
+
+			<!-- User info -->
+			<li class="dropdown pmd-dropdown pmd-user-info visible-xs visible-md visible-sm visible-lg">
+				<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" aria-expandedhref="javascript:void(0);">
+					<div class="media-left">
+						<img class="img-circle iconImage" src="/img/roger.ico" alt="New User">
+					</div>
+					<div class="media-body media-middle">Pigassi Admin</div>
+					<div class="media-right media-middle"><i class="dic-more-vert dic"></i></div>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="login.html">Logout</a></li>
+				</ul>
+			</li><!-- End user info -->
+
+
+
+
+
+			<li class="dropdown pmd-dropdown">
+				<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">
+					<i class="media-left media-middle"><svg version="1.1" x="0px" y="0px" width="14.187px" height="18px" viewBox="0 0 14.187 18"
+						 enable-background="new 0 0 14.187 18" xml:space="preserve">
+							<path fill="#C9C8C8" d="M0,0v18h14.187V0H0z M3.121,3.293h2.023v4.767H3.121V3.293z M11.211,14.764H2.948v-2.022h8.263V14.764
+	L11.211,14.764z M11.211,11.585H2.948V9.563h8.263V11.585L11.211,11.585z M11.211,8.407H7.455V6.385h3.756V8.407z M11.211,5.229
+	H7.455V3.207h3.756V5.229z" />
+						</svg></i>
+					<span class="media-body">Viagens</span>
+					<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="criarviagem.html">Criar Viagem</a></li>
+					<li><a href="gerenciarviagem.html">Gerenciar Viagem</a></li>
+				</ul>
+			</li>
+
+
+
+
+
+
+
+
+		</ul>
+	</aside><!-- End Left sidebar -->
+	<!-- Sidebar Ends -->
+
+	<form action="criarviagem.php" method="POST">
+		<div id="content" class="pmd-content">
+			<center>
+				<h1> Cadastro de novo Itinerário </h1>
+			</center>
+			<div class="container">
+				<div class="row" style="display: flex;
+    justify-content: flex-end;">
+					<div class="col-sm-6" style="max-width: fit-content">
+						<div class="pmd-card pmd-z-depth pmd-card-custom-form" style="max-width: fit-content;">
+							<div class="pmd-card-body">
+								<label for="regular1" class="control-label">Selecione a Escola</label>
+								<select class="form-control" id="selectCadastrar" onchange="cadastrarOcorrencia();" th:field="*{urlId}">
+									<option value="opt1" selected>Selecione</option>
+									<option th:value="${url.id}" th:each="url : ${urlLista}" th:text="${url.urlPrincipal}">Escola</option>
+								</select>
+
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="pmd-card pmd-z-depth pmd-card-custom-form" style="max-width: fit-content;">
+							<div class="pmd-card-body">
+								<label for="regular1" class="control-label">Selecione os alunos</label>
+								<select class="form-control .pmd-select2-tags" id="selectCadastrar" onchange="cadastrarOcorrencia();" th:field="*{urlId}">
+									<option value="opt1" selected>Selecione</option>
+									<option value="opt2">Pedro da Silva</option>
+									<option value="opt3">João Pereira</option>
+									<option value="opt4">Henrique Ferreira</option>
+								</select>
+
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<br>
+				<div class="row" style="display: flex;
+        justify-content: center; ">
+					<button type="submit" class="btn pmd-ripple-effect btn-warning"> Enviar </button>
+				</div>
+			</div>
+		</div>
+		</div>
+	</form>
+	<!-- Footer Starts -->
+	<!-- <footer class="admin-footer">
+ <div class="container-fluid">
+ 	
+ </div>
+</footer> -->
+	<!-- Footer Ends -->
+
+	<!-- Scripts Starts -->
+	<script src="assets/js/jquery-1.12.2.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/propeller.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			var sPath = window.location.pathname;
+			var sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
+			$(".pmd-sidebar-nav").each(function () {
+				$(this).find("a[href='" + sPage + "']").parents(".dropdown").addClass("open");
+				$(this).find("a[href='" + sPage + "']").parents(".dropdown").find('.dropdown-menu').css("display", "block");
+				$(this).find("a[href='" + sPage + "']").parents(".dropdown").find('a.dropdown-toggle').addClass("active");
+				$(this).find("a[href='" + sPage + "']").addClass("active");
+			});
+
+			$(".auto-update-year").html(new Date().getFullYear());
+
+		});
+
+	</script>
+
+</body>
+
+</html>

@@ -29,18 +29,51 @@ public class TurnoController {
 	
 	@Autowired
 	private TurnoRepository turnoRepository;
-	
+
 	@Autowired
 	private TurnoService turnoService;
 	
-	@GetMapping(value = "/mostrarTurnos")
-	public ModelAndView turno(Turno turno) {
-		ModelAndView mv = new ModelAndView("turno");
-		
-		mv.addObject("turno", turnoRepository.findAll());
+	@GetMapping(value = "/criarTurno")
+	public ModelAndView criarTurno(Turno turno) {
+		ModelAndView mv = new ModelAndView("criarTurno");
+
 		return mv;
 	}
 	
+
+	@GetMapping(value = "/mostrarTurnos")
+	public ModelAndView turno(Turno turno) {
+		ModelAndView mv = new ModelAndView("visualizarTurno");
+
+		mv.addObject("turno", turnoRepository.findAll( ));
+		return mv;
+		
+	}
+	
+	
+
+	@RequestMapping(value = "/adicionarTurno", method = RequestMethod.POST)
+	public ModelAndView adicionarTurno(@Valid Turno turno, BindingResult result, RedirectAttributes attributes) {
+		if (result.hasErrors()) {
+			return turno(turno);
+		}
+		turnoService.salvarTurno(turno);
+
+		attributes.addFlashAttribute("mensagem", "Turno cadastrado com sucesso!");
+		return new ModelAndView("redirect:/turno/criarTurno");
+	}
+	
+//	@RequestMapping(value="/editarTurno", method=RequestMethod.POST)
+//	public ModelAndView atualizarTurno(@Valid Turno turno, BindingResult result, RedirectAttributes attributes) {
+//		if(result.hasErrors()) {
+//			return turno(turno);
+//		}
+//		turnoService.editarTurno(turno);
+//		 
+//		attributes.addFlashAttribute("mensagem", "Turno editado com sucesso!");
+//		return new ModelAndView("redirect:/turno/mostrarTurnos");
+//	}
+
 	@RequestMapping(value = "/excluirTurno", method = RequestMethod.POST)
 	public ModelAndView excluirTurno(@Valid Turno turno, BindingResult result, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
@@ -52,25 +85,4 @@ public class TurnoController {
 		return new ModelAndView("redirect:/turno/mostrarTurnos");
 	}
 
-//	@RequestMapping(value="/editarTurno", method=RequestMethod.POST)
-//	public ModelAndView atualizarTurno(@Valid Turno turno, BindingResult result, RedirectAttributes attributes) {
-//		if(result.hasErrors()) {
-//			return turno(turno);
-//		}
-//		turnoService.editarTurno(turno);
-//		 
-//		attributes.addFlashAttribute("mensagem", "Turno editado com sucesso!");
-//		return new ModelAndView("redirect:/turno/mostrarTurnos");
-//	}
-	
-	@RequestMapping(value="/adicionarTurno",method=RequestMethod.POST)
-	public ModelAndView adicionarTurno(@Valid Turno turno, BindingResult result, RedirectAttributes attributes) {
-		if(result.hasErrors()) {
-			return turno(turno);
-		}
-		turnoService.salvarTurno(turno);
-		
-		attributes.addFlashAttribute("mensagem", "Ocorrência cadastrada com sucesso!");
-		return new ModelAndView("redirect:/turno/mostrarTurnos");
-	}}
-	
+}

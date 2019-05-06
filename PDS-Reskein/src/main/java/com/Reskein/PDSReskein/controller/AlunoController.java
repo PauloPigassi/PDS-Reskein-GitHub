@@ -29,50 +29,63 @@ public class AlunoController {
 	
 	@Autowired
 	private AlunoRepository alunoRepository;
-	
+
 	@Autowired
 	private AlunoService alunoService;
 	
-	@GetMapping(value = "/mostrarAlunos")
-	public ModelAndView aluno(Aluno aluno) {
-		ModelAndView mv = new ModelAndView("aluno");
-		
-		mv.addObject("aluno", alunoRepository.findAll());
+	@GetMapping(value = "/criarAluno")
+	public ModelAndView criarAluno(Aluno aluno) {
+		ModelAndView mv = new ModelAndView("criarAluno");
+
 		return mv;
 	}
 	
+
+	@GetMapping(value = "/mostrarAlunos")
+	public ModelAndView aluno(Aluno aluno) {
+		ModelAndView mv = new ModelAndView("visualizarAluno");
+
+		mv.addObject("aluno", alunoRepository.findAll( ));
+		return mv;
+		
+	}
 	
-	@RequestMapping(value="/adicionarAluno",method=RequestMethod.POST)
+	
+
+	@RequestMapping(value = "/adicionarAluno", method = RequestMethod.POST)
 	public ModelAndView adicionarAluno(@Valid Aluno aluno, BindingResult result, RedirectAttributes attributes) {
-		if(result.hasErrors()) {
+		if (result.hasErrors()) {
 			return aluno(aluno);
 		}
 		alunoService.salvarAluno(aluno);
-		
+
 		attributes.addFlashAttribute("mensagem", "Aluno cadastrado com sucesso!");
-		return new ModelAndView("redirect:/aluno/mostrarAlunos");
+		return new ModelAndView("redirect:/aluno/criarAluno");
 	}
-//	
+	
 //	@RequestMapping(value="/editarAluno", method=RequestMethod.POST)
-//	public ModelAndView editarAluno(@Valid Aluno aluno, BindingResult result, RedirectAttributes attributes) {
+//	public ModelAndView atualizarAluno(@Valid Aluno aluno, BindingResult result, RedirectAttributes attributes) {
 //		if(result.hasErrors()) {
 //			return aluno(aluno);
 //		}
 //		alunoService.editarAluno(aluno);
-//		
-//		attributes.addFlashAttribute("mensagem", "Ocorrência cadastrada com sucesso!");
-//		
+//		 
+//		attributes.addFlashAttribute("mensagem", "Aluno editado com sucesso!");
+//		return new ModelAndView("redirect:/aluno/mostrarAlunos");
 //	}
-	@RequestMapping(value="/excluirAluno", method=RequestMethod.POST)
+
+	@RequestMapping(value = "/excluirAluno", method = RequestMethod.POST)
 	public ModelAndView excluirAluno(@Valid Aluno aluno, BindingResult result, RedirectAttributes attributes) {
-		if(result.hasErrors()) {
+		if (result.hasErrors()) {
 			return aluno(aluno);
 		}
 		alunoService.excluirAluno(aluno);
-		
+
 		attributes.addFlashAttribute("mensagem", "Aluno removido com sucesso!");
 		return new ModelAndView("redirect:/aluno/mostrarAlunos");
 	}
+
+}
 	
 //	@RequestMapping(value="/editarAluno", method=RequestMethod.POST)
 //	public ModelAndView atualizarAluno(@Valid Aluno aluno, BindingResult result, RedirectAttributes attributes) {

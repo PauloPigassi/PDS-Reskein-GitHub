@@ -29,29 +29,40 @@ public class FinancasController {
 	
 	@Autowired
 	private FinancasRepository financasRepository;
-	
+
 	@Autowired
 	private FinancasService financasService;
 	
-	@GetMapping(value = "/mostrarFinancass")
-	public ModelAndView financas(Financas financas) {
-		ModelAndView mv = new ModelAndView("financas");
-		
-		mv.addObject("financas", financasRepository.findAll());
+	@GetMapping(value = "/criarFinancas")
+	public ModelAndView criarFinancas(Financas financas) {
+		ModelAndView mv = new ModelAndView("criarFinancas");
+
 		return mv;
 	}
 	
-	@RequestMapping(value = "/excluirFinancas", method = RequestMethod.POST)
-	public ModelAndView excluirFinancas(@Valid Financas financas, BindingResult result, RedirectAttributes attributes) {
+
+	@GetMapping(value = "/mostrarFinancass")
+	public ModelAndView financas(Financas financas) {
+		ModelAndView mv = new ModelAndView("visualizarFinancas");
+
+		mv.addObject("financas", financasRepository.findAll( ));
+		return mv;
+		
+	}
+	
+	
+
+	@RequestMapping(value = "/adicionarFinancas", method = RequestMethod.POST)
+	public ModelAndView adicionarFinancas(@Valid Financas financas, BindingResult result, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
 			return financas(financas);
 		}
-		financasService.excluirFinancas(financas);
+		financasService.salvarFinancas(financas);
 
-		attributes.addFlashAttribute("mensagem", "Financas removidas com sucesso!");
-		return new ModelAndView("redirect:/financas/mostrarFinancass");
+		attributes.addFlashAttribute("mensagem", "Financas cadastrado com sucesso!");
+		return new ModelAndView("redirect:/financas/criarFinancas");
 	}
-
+	
 //	@RequestMapping(value="/editarFinancas", method=RequestMethod.POST)
 //	public ModelAndView atualizarFinancas(@Valid Financas financas, BindingResult result, RedirectAttributes attributes) {
 //		if(result.hasErrors()) {
@@ -59,18 +70,19 @@ public class FinancasController {
 //		}
 //		financasService.editarFinancas(financas);
 //		 
-//		attributes.addFlashAttribute("mensagem", "Financas editadas com sucesso!");
+//		attributes.addFlashAttribute("mensagem", "Financas editado com sucesso!");
 //		return new ModelAndView("redirect:/financas/mostrarFinancass");
 //	}
-	
-	@RequestMapping(value="/adicionarFinancas",method=RequestMethod.POST)
-	public ModelAndView adicionarFinancas(@Valid Financas financas, BindingResult result, RedirectAttributes attributes) {
-		if(result.hasErrors()) {
+
+	@RequestMapping(value = "/excluirFinancas", method = RequestMethod.POST)
+	public ModelAndView excluirFinancas(@Valid Financas financas, BindingResult result, RedirectAttributes attributes) {
+		if (result.hasErrors()) {
 			return financas(financas);
 		}
-		financasService.salvarFinancas(financas);
-		
-		attributes.addFlashAttribute("mensagem", "Ocorrência cadastrada com sucesso!");
+		financasService.excluirFinancas(financas);
+
+		attributes.addFlashAttribute("mensagem", "Financas removido com sucesso!");
 		return new ModelAndView("redirect:/financas/mostrarFinancass");
 	}
+
 }

@@ -29,28 +29,60 @@ public class PerueiroController {
 	
 	@Autowired
 	private PerueiroRepository perueiroRepository;
-	
+
 	@Autowired
 	private PerueiroService perueiroService;
 	
-	
-	@GetMapping(value = "/mostrarPerueiros")
-	public ModelAndView perueiro(Perueiro perueiro) {
-		ModelAndView mv = new ModelAndView("perueiro");
-		
-		mv.addObject("perueiro", perueiroRepository.findAll());
+	@GetMapping(value = "/criarPerueiro")
+	public ModelAndView criarPerueiro(Perueiro perueiro) {
+		ModelAndView mv = new ModelAndView("criarPerueiro");
+
 		return mv;
 	}
 	
+
+	@GetMapping(value = "/mostrarPerueiros")
+	public ModelAndView perueiro(Perueiro perueiro) {
+		ModelAndView mv = new ModelAndView("visualizarPerueiro");
+
+		mv.addObject("perueiro", perueiroRepository.findAll( ));
+		return mv;
+		
+	}
 	
-	@RequestMapping(value="/adicionarPerueiro",method=RequestMethod.POST)
+	
+
+	@RequestMapping(value = "/adicionarPerueiro", method = RequestMethod.POST)
 	public ModelAndView adicionarPerueiro(@Valid Perueiro perueiro, BindingResult result, RedirectAttributes attributes) {
-		if(result.hasErrors()) {
+		if (result.hasErrors()) {
 			return perueiro(perueiro);
 		}
 		perueiroService.salvarPerueiro(perueiro);
-		
-		attributes.addFlashAttribute("mensagem", "Ocorrência cadastrada com sucesso!");
-		return new ModelAndView("redirect:/perueiro/mostrarPerueiros");
-	}}
+
+		attributes.addFlashAttribute("mensagem", "Perueiro cadastrado com sucesso!");
+		return new ModelAndView("redirect:/perueiro/criarPerueiro");
+	}
 	
+//	@RequestMapping(value="/editarPerueiro", method=RequestMethod.POST)
+//	public ModelAndView atualizarPerueiro(@Valid Perueiro perueiro, BindingResult result, RedirectAttributes attributes) {
+//		if(result.hasErrors()) {
+//			return perueiro(perueiro);
+//		}
+//		perueiroService.editarPerueiro(perueiro);
+//		 
+//		attributes.addFlashAttribute("mensagem", "Perueiro editado com sucesso!");
+//		return new ModelAndView("redirect:/perueiro/mostrarPerueiros");
+//	}
+
+	@RequestMapping(value = "/excluirPerueiro", method = RequestMethod.POST)
+	public ModelAndView excluirPerueiro(@Valid Perueiro perueiro, BindingResult result, RedirectAttributes attributes) {
+		if (result.hasErrors()) {
+			return perueiro(perueiro);
+		}
+		perueiroService.excluirPerueiro(perueiro);
+
+		attributes.addFlashAttribute("mensagem", "Perueiro removido com sucesso!");
+		return new ModelAndView("redirect:/perueiro/mostrarPerueiros");
+	}
+
+}
