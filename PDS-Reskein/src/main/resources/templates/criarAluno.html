@@ -13,19 +13,19 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<!-- Bootstrap css -->
-	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
 
 	<!-- Propeller css -->
-	<link rel="stylesheet" type="text/css" href="assets/css/propeller.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/propeller.min.css">
 
 	<!-- Propeller theme css-->
-	<link rel="stylesheet" type="text/css" href="themes/css/propeller-theme.css" />
+	<link rel="stylesheet" type="text/css" href="../themes/css/propeller-theme.css" />
 
 	<!-- Propeller admin theme css-->
-	<link rel="stylesheet" type="text/css" href="themes/css/propeller-admin.css">
+	<link rel="stylesheet" type="text/css" href="../themes/css/propeller-admin.css">
 
 	<!--CSS externo-->
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 
 
 </head>
@@ -149,6 +149,7 @@
 	<!--End Nav bar -->
 	<!-- Header Ends -->
 
+
 	<!-- Sidebar Starts -->
 	<div class="pmd-sidebar-overlay"></div>
 
@@ -176,25 +177,137 @@
 
 
 
-
-			<li class="dropdown pmd-dropdown">
-				<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media"
-					data-sidebar="true" href="javascript:void(0);">
-					<i class="media-left media-middle"><svg version="1.1" x="0px" y="0px" width="14.187px" height="18px"
-							viewBox="0 0 14.187 18" enable-background="new 0 0 14.187 18" xml:space="preserve">
-							<path fill="#C9C8C8" d="M0,0v18h14.187V0H0z M3.121,3.293h2.023v4.767H3.121V3.293z M11.211,14.764H2.948v-2.022h8.263V14.764
+			<li class="dropdown pmd-dropdown"><a aria-expanded="false"
+				data-toggle="dropdown" class="btn-user dropdown-toggle media"
+				data-sidebar="true" href="javascript:void(0);"> <i
+					class="media-left media-middle"><svg version="1.1" x="0px"
+							y="0px" width="14.187px" height="18px" viewBox="0 0 14.187 18"
+							enable-background="new 0 0 14.187 18" xml:space="preserve">
+							<path fill="#C9C8C8"
+								d="M0,0v18h14.187V0H0z M3.121,3.293h2.023v4.767H3.121V3.293z M11.211,14.764H2.948v-2.022h8.263V14.764
 	L11.211,14.764z M11.211,11.585H2.948V9.563h8.263V11.585L11.211,11.585z M11.211,8.407H7.455V6.385h3.756V8.407z M11.211,5.229
 	H7.455V3.207h3.756V5.229z" />
-						</svg></i>
-					<span class="media-body">Alunos</span>
-					<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
-				</a>
+						</svg></i> <span class="media-body">Escola</span>
+					<div class="media-right media-bottom">
+						<i class="dic-more-vert dic"></i>
+					</div>
+			</a>
 				<ul class="dropdown-menu">
-					<li><a href="criaraluno.html">Criar aluno</a></li>
-					<li><a href="gerenciaraluno.html">Gerenciar alunos</a></li>
-				</ul>
-			</li>
+					<li><a th:href=@{escola/criarEscola} th:text="#{criar.escola}">Criar
+							escola</a></li>
+					<li><a th:href=@{escola/gerenciarEscola}
+						th:text="#{gerenciar.escola}">Gerenciar escolas</a></li>
+				</ul></li>
 
+			<li class="dropdown pmd-dropdown"><a aria-expanded="false"
+				data-toggle="dropdown" class="btn-user dropdown-toggle media"
+				data-sidebar="true" href="javascript:void(0);"> <i
+					class="media-left media-middle"><svg version="1.1" x="0px"
+							y="0px" width="14.187px" height="18px" viewBox="0 0 14.187 18"
+							enable-background="new 0 0 14.187 18" xml:space="preserve">
+							<path fill="#C9C8C8"
+								d="M0,0v18h14.187V0H0z M3.121,3.293h2.023v4.767H3.121V3.293z M11.211,14.764H2.948v-2.022h8.263V14.764
+	L11.211,14.764z M11.211,11.585H2.948V9.563h8.263V11.585L11.211,11.585z M11.211,8.407H7.455V6.385h3.756V8.407z M11.211,5.229
+	H7.455V3.207h3.756V5.229z" />
+						</svg></i> <span class="media-body">Aluno</span>
+					<div class="media-right media-bottom">
+						<i class="dic-more-vert dic"></i>
+					</div>
+			</a>
+				<ul class="dropdown-menu">
+					<li><a th:href=@{aluno/criarAluno} th:text="#{criar.aluno}">Criar
+							aluno</a></li>
+					<li><a th:href=@{aluno/gerenciarAluno}
+						th:text="#{gerenciar.aluno}">Gerenciar alunos</a></li>
+				</ul></li>
+
+			<li class="dropdown pmd-dropdown"><a aria-expanded="false"
+				data-toggle="dropdown" class="btn-user dropdown-toggle media"
+				data-sidebar="true" href="javascript:void(0);"> <i
+					class="media-left media-middle"><svg version="1.1" x="0px"
+							y="0px" width="14.187px" height="18px" viewBox="0 0 14.187 18"
+							enable-background="new 0 0 14.187 18" xml:space="preserve">
+							<path fill="#C9C8C8"
+								d="M0,0v18h14.187V0H0z M3.121,3.293h2.023v4.767H3.121V3.293z M11.211,14.764H2.948v-2.022h8.263V14.764
+	L11.211,14.764z M11.211,11.585H2.948V9.563h8.263V11.585L11.211,11.585z M11.211,8.407H7.455V6.385h3.756V8.407z M11.211,5.229
+	H7.455V3.207h3.756V5.229z" />
+						</svg></i> <span class="media-body">Veículo</span>
+					<div class="media-right media-bottom">
+						<i class="dic-more-vert dic"></i>
+					</div>
+			</a>
+				<ul class="dropdown-menu">
+					<li><a th:href=@{veiculo/criarVeiculo} th:text="#{criar.veiculo}">Criar
+							veículo</a></li>
+					<li><a th:href=@{veiculo/gerenciarVeiculo}
+						th:text="#{gerenciar.veiculo}">Gerenciar veículos</a></li>
+				</ul></li>
+
+			<li class="dropdown pmd-dropdown"><a aria-expanded="false"
+				data-toggle="dropdown" class="btn-user dropdown-toggle media"
+				data-sidebar="true" href="javascript:void(0);"> <i
+					class="media-left media-middle"><svg version="1.1" x="0px"
+							y="0px" width="14.187px" height="18px" viewBox="0 0 14.187 18"
+							enable-background="new 0 0 14.187 18" xml:space="preserve">
+							<path fill="#C9C8C8"
+								d="M0,0v18h14.187V0H0z M3.121,3.293h2.023v4.767H3.121V3.293z M11.211,14.764H2.948v-2.022h8.263V14.764
+	L11.211,14.764z M11.211,11.585H2.948V9.563h8.263V11.585L11.211,11.585z M11.211,8.407H7.455V6.385h3.756V8.407z M11.211,5.229
+	H7.455V3.207h3.756V5.229z" />
+						</svg></i> <span class="media-body">Viagens</span>
+					<div class="media-right media-bottom">
+						<i class="dic-more-vert dic"></i>
+					</div>
+			</a>
+				<ul class="dropdown-menu">
+					<li><a th:href=@{viagem/criarViagem} th:text="#{criar.viagem}">Criar
+							viagem</a></li>
+					<li><a th:href=@{viagem/gerenciarViagem}
+						th:text="#{gerenciar.viagem}">Gerenciar viagens</a></li>
+				</ul></li>
+
+			<li class="dropdown pmd-dropdown"><a aria-expanded="false"
+				data-toggle="dropdown" class="btn-user dropdown-toggle media"
+				data-sidebar="true" href="javascript:void(0);"> <i
+					class="media-left media-middle"><svg version="1.1" x="0px"
+							y="0px" width="14.187px" height="18px" viewBox="0 0 14.187 18"
+							enable-background="new 0 0 14.187 18" xml:space="preserve">
+							<path fill="#C9C8C8"
+								d="M0,0v18h14.187V0H0z M3.121,3.293h2.023v4.767H3.121V3.293z M11.211,14.764H2.948v-2.022h8.263V14.764
+	L11.211,14.764z M11.211,11.585H2.948V9.563h8.263V11.585L11.211,11.585z M11.211,8.407H7.455V6.385h3.756V8.407z M11.211,5.229
+	H7.455V3.207h3.756V5.229z" />
+						</svg></i> <span class="media-body">Itinerários</span>
+					<div class="media-right media-bottom">
+						<i class="dic-more-vert dic"></i>
+					</div>
+			</a>
+				<ul class="dropdown-menu">
+					<li><a th:href=@{itinerario/criarItinerario} th:text="#{criar.itinerario}">Criar
+							itinerario</a></li>
+					<li><a th:href=@{itinerario/gerenciarItinerario}
+						th:text="#{gerenciar.itinerario}">Gerenciar itinerários</a></li>
+				</ul></li>
+
+			<li class="dropdown pmd-dropdown"><a aria-expanded="false"
+				data-toggle="dropdown" class="btn-user dropdown-toggle media"
+				data-sidebar="true" href="javascript:void(0);"> <i
+					class="media-left media-middle"><svg version="1.1" x="0px"
+							y="0px" width="14.187px" height="18px" viewBox="0 0 14.187 18"
+							enable-background="new 0 0 14.187 18" xml:space="preserve">
+							<path fill="#C9C8C8"
+								d="M0,0v18h14.187V0H0z M3.121,3.293h2.023v4.767H3.121V3.293z M11.211,14.764H2.948v-2.022h8.263V14.764
+	L11.211,14.764z M11.211,11.585H2.948V9.563h8.263V11.585L11.211,11.585z M11.211,8.407H7.455V6.385h3.756V8.407z M11.211,5.229
+	H7.455V3.207h3.756V5.229z" />
+						</svg></i> <span class="media-body">Turnos</span>
+					<div class="media-right media-bottom">
+						<i class="dic-more-vert dic"></i>
+					</div>
+			</a>
+				<ul class="dropdown-menu">
+					<li><a th:href=@{turno/criarTurno} th:text="#{criar.turno}">Criar
+							turno</a></li>
+					<li><a th:href=@{turno/gerenciarTurno}
+						th:text="#{gerenciar.turno}">Gerenciar turnos</a></li>
+				</ul></li>
 
 
 
@@ -219,11 +332,8 @@
 							<div class="pmd-card-body">
 
 								<div class="form-group">
-                                        <label for="regular1" class="control-label">Selecione as Escolas</label>
-                                        <select class="form-control .pmd-select2-tags" id="selectCadastrar" onchange="cadastrarOcorrencia();" th:field="*{urlId}">
-                                                <option value="opt1" selected>Selecione</option>
-                                                <option th:value="${url.id}" th:each="url : ${urlLista}" th:text="${url.urlPrincipal}">Escola</option>
-                                        </select>
+									<label for="regular1" class="control-label">Nome do Aluno</label>
+									<input type="text" id="regular1" class="form-control">
 								</div>
 
 							</div>
@@ -232,13 +342,8 @@
 							<div class="pmd-card-body">
 
 								<div class="form-group">
-                                        <label for="regular1" class="control-label">Selecione o Período</label>
-                                        <select class="form-control .pmd-select2-tags" id="selectCadastrar" onchange="cadastrarOcorrencia();" th:field="*{urlId}">
-                                            <option value="opt1" selected>Selecione</option>
-                                            <option value="opt2">Manhã</option>
-                                            <option value="opt3">Tarde</option>
-                                            <option value="opt4">Noite</option>
-                                        </select>
+									<label for="regular1" class="control-label">Endereço do Aluno</label>
+									<input type="text" id="regular1" class="form-control">
 								</div>
 
 							</div>
@@ -247,8 +352,8 @@
 							<div class="pmd-card-body">
 
 								<div class="form-group">
-									<label for="regular1" class="control-label">Horário de Entrada</label>
-									<input type="datetime" id="regular1" class="form-control">
+									<label for="regular1" class="control-label">Data de Nascimento</label>
+									<input type="date" id="regular1" class="form-control">
 								</div>
 
 							</div>
@@ -257,8 +362,8 @@
 							<div class="pmd-card-body">
 
 								<div class="form-group">
-									<label for="regular1" class="control-label">Horário de Saída</label>
-									<input type="datetime" id="regular1" class="form-control">
+									<label for="regular1" class="control-label">Contato</label>
+									<input type="text" id="regular1" class="form-control">
 								</div>
 
 							</div>
@@ -284,9 +389,9 @@
 	<!-- Footer Ends -->
 
 	<!-- Scripts Starts -->
-	<script src="assets/js/jquery-1.12.2.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/propeller.min.js"></script>
+	<script src="../assets/js/jquery-1.12.2.min.js"></script>
+	<script src="../assets/js/bootstrap.min.js"></script>
+	<script src="../assets/js/propeller.min.js"></script>
 	<script>
 		$(document).ready(function () {
 			var sPath = window.location.pathname;

@@ -37,7 +37,7 @@
         <div th:if="${param.logout}">
             You have been logged out.
         </div> 
-			<form  th:action="@{/login}" method="post">	
+			<form  th:action="@{/login}" method="post" th:redirect="@{/dashboard}">	
 				<div class="pmd-card-title card-header-border text-center">
 					<div class="loginlogo">
 						<a href="javascript:void(0);"><img src="img/perua-icon.jpg" alt="Logo"></a>
@@ -78,7 +78,7 @@
 							<a href="javascript:void(0);">Esqueceu senha?</a>
 						</span>
 					</div>
-					<button type="submit" class="btn pmd-ripple-effect btn-primary btn-block">Entrar</button>
+					<button type="submit" class="btn pmd-ripple-effect btn-primary btn-block" >Entrar</button>
                     
 					
 				</div>
@@ -104,7 +104,7 @@
                     </div>
 				</div>
 			  <div class="pmd-card-footer card-footer-no-border card-footer-p16 text-center">
-			  	<a href="login.html" type="button" class="btn pmd-ripple-effect btn-primary btn-block">Enviar</a>
+			  	<a href="th:href=@{/dashboard}" type="button" class="btn pmd-ripple-effect btn-primary btn-block">Enviar</a>
 			  	<p class="redirection-link">Já possui conta? <a href="javascript:void(0);" class="register-login">Faça login!!</a></p>
 			  </div>
 			</form>

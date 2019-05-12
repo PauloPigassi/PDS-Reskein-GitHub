@@ -1,58 +1,90 @@
 package com.Reskein.PDSReskein.controller;
 
-import java.net.URI;
-
+import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.Reskein.PDSReskein.model.Aluno;
+import com.Reskein.PDSReskein.model.Escola;
 import com.Reskein.PDSReskein.model.Itinerario;
+import com.Reskein.PDSReskein.repository.AlunoRepository;
+import com.Reskein.PDSReskein.repository.EscolaRepository;
 import com.Reskein.PDSReskein.repository.ItinerarioRepository;
 import com.Reskein.PDSReskein.service.ItinerarioService;
 
 
+
+
 @Controller
-@RequestMapping("/itinerario")
+@RequestMapping("/")
 public class ItinerarioController {
 	
 	@Autowired
 	private ItinerarioRepository itinerarioRepository;
+	
+	@Autowired
+	private EscolaRepository escolaRepository;
+	
+	@Autowired
+	private AlunoRepository alunoRepository;
+	
+
+	
 
 	@Autowired
 	private ItinerarioService itinerarioService;
 	
-	@GetMapping(value = "/criarItinerario")
+	@GetMapping(value = "itinerario/criarItinerario")
 	public ModelAndView criarItinerario(Itinerario itinerario) {
-		ModelAndView mv = new ModelAndView("criarItinerario");
+		ModelAndView mv = new ModelAndView("criaritinerario");
+		
+		  List<Escola> escolaLista = escolaRepository.findAll();
+		  mv.addObject("escolaLista", escolaRepository.findAll( ));
+		  
+		  List<Aluno> alunoLista = alunoRepository.findAll();
+		  mv.addObject("alunoLista", alunoRepository.findAll());
 
 		return mv;
 	}
 	
+	@GetMapping(value = "itinerario/gerenciarItinerario")
+	public ModelAndView gerenciarItinerario(Itinerario itinerario, Aluno aluno, Escola escola) {
+		ModelAndView mv = new ModelAndView("gerenciaritinerario");
+		
+		
+		
+		List<Itinerario> itinerarioLista = itinerarioRepository.findAllById(itinerario.getIdItinerario());
+		  mv.addObject("itinerarioLista", itinerarioRepository.findAllById(itinerario.getIdItinerario()));
+		  
+		
 
-	@GetMapping(value = "/mostrarItinerarios")
+		return mv;
+	}
+	
+	
+
+	@GetMapping(value = "itinerario/mostrarItinerarios")
 	public ModelAndView itinerario(Itinerario itinerario) {
 		ModelAndView mv = new ModelAndView("visualizarItinerario");
 
-		mv.addObject("itinerario", itinerarioRepository.findAll( ));
+		mv.addObject("itinerarioLista", itinerarioRepository.findAll( ));
 		return mv;
 		
 	}
 	
 	
 
-	@RequestMapping(value = "/adicionarItinerario", method = RequestMethod.POST)
+	@RequestMapping(value = "itinerario/adicionarItinerario", method = RequestMethod.POST)
 	public ModelAndView adicionarItinerario(@Valid Itinerario itinerario, BindingResult result, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
 			return itinerario(itinerario);

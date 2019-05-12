@@ -17,8 +17,14 @@ import com.Reskein.PDSReskein.model.Itinerario;
 public interface ItinerarioRepository extends JpaRepository<Itinerario, Integer> {
 	
 
-	@Query(value = "select * from Itinerario where idItinerario=?", nativeQuery = true)
-	List<Itinerario> findAllByIdItinerario(Integer idItinerario);
+//	@Query(value = "select * from Itinerario where id_itinerario=?", nativeQuery = true)
+//	List<Itinerario> findAllByIdItinerario(Integer idItinerario);
+	
+	
+	@Query(value = "select escola.nome, aluno.nome from itinerario, escola, aluno where itinerario.id_itinerario = ?", nativeQuery = true)
+	List<Itinerario> findAllById(Integer idItinerario);
+	
+	
 	
 //	@Modifying
 //	@Transactional
